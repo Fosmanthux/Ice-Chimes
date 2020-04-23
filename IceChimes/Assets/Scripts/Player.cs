@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int finalScore = 0;
+    //public int finalScore = 0;
 
     public float Xincrement;
     public float speed;
@@ -44,5 +44,13 @@ public class Player : MonoBehaviour
         {
             pos = new Vector3(transform.position.x, transform.position.y + jumpHight, transform.position.z);
         }    
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }

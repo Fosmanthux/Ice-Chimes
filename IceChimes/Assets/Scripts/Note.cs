@@ -5,14 +5,13 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Note : MonoBehaviour
 {
-    public int score = 10;
+    public int coinValue = 10;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            other.GetComponent<Player>().finalScore += score;
-            Debug.Log(other.GetComponent<Player>().finalScore);
+            ScoreManager.instance.ChangeScore(coinValue);
         }
     }
 
