@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
 
         if(other.gameObject.tag == "Ground")
          {
-             isGrounded = true;
+            isGrounded = true;
          }
     }
     

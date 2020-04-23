@@ -14,6 +14,11 @@ public class Note : MonoBehaviour
             ScoreManager.instance.ChangeScore(coinValue);
             Destroy(this.gameObject);
         }
+
+        if (other.gameObject.CompareTag("Killzone"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }
