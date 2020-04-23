@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
     public void ChangeScore(int coinValue)
     {
         score += coinValue;
-        text.text = " " + score.ToString();
+        text.text = "Score: " + score.ToString();
         finalScore = score;
     }
 

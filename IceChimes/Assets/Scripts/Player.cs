@@ -6,11 +6,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-<<<<<<< HEAD
-    //public int finalScore = 0;
 
-=======
->>>>>>> 1b81b433b531ac5ad21e862ad9ff51eb16d7c37b
     public float Xincrement;
     public float speed;
     public float leftBoarder;
@@ -32,11 +28,11 @@ public class Player : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, pos, speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > leftBoarder)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > leftBoarder && transform.position.y ==0) // bug when going right or left while being in a jump
         {
             pos = new Vector3(transform.position.x - Xincrement, transform.position.y, transform.position.z);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < rightBoarder)
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < rightBoarder && transform.position.y == 0)
         {
             pos = new Vector3(transform.position.x + Xincrement, transform.position.y, transform.position.z);
         }
@@ -44,22 +40,17 @@ public class Player : MonoBehaviour
         {
             Debug.Log(Input.inputString);
             rgbd.velocity += new Vector3(0, jumpHight, 0);
-        }    
+        }  
     }
 
-<<<<<<< HEAD
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Coin"))
-        {
-            Destroy(other.gameObject);
-=======
+
     void OnCollisionEnter(Collision other)
     {
+
         if(other.gameObject.tag == "Ground")
-        {
-            isGrounded = true;
-        }
+         {
+             isGrounded = true;
+         }
     }
     
     void OnCollisionExit(Collision other)
@@ -67,7 +58,6 @@ public class Player : MonoBehaviour
         if (other.gameObject.tag == "Ground")
         {
             isGrounded = false;
->>>>>>> 1b81b433b531ac5ad21e862ad9ff51eb16d7c37b
         }
     }
 }
