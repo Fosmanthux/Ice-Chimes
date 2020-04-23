@@ -1,36 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int finalScore = 0;
-
     public float Xincrement;
     public float speed;
     public float leftBoarder;
     public float rightBoarder;
     
-    public float jumpHight = 2f;
+    public float jumpHight;
 
-    private bool isGrounded;
+    private bool isGrounded = true;
 
     private Vector3 pos;
+    private Rigidbody rgbd;
 
     void Start()
     {
-
+        rgbd = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, pos, speed * Time.deltaTime);
-
-        if (transform.position.y == 0)
-            {
-                isGrounded = true;
-            }
-            else isGrounded = false;
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > leftBoarder)
         {
@@ -40,9 +35,26 @@ public class Player : MonoBehaviour
         {
             pos = new Vector3(transform.position.x + Xincrement, transform.position.y, transform.position.z);
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < jumpHight)
+        else if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            pos = new Vector3(transform.position.x, transform.position.y + jumpHight, transform.position.z);
+            Debug.Log(Input.inputString);
+            rgbd.velocity += new Vector3(0, jumpHight, 0);
         }    
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
+        }
+    }
+    
+    void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.tag == "Ground")
+        {
+            isGrounded = false;
+        }
     }
 }
