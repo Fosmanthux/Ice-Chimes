@@ -15,10 +15,6 @@ public class Note : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        if (other.gameObject.CompareTag("Killzone"))
-        {
-            Destroy(this.gameObject);
-        }
     }
 
 }
