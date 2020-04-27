@@ -29,11 +29,9 @@ public class MobileInput : MonoBehaviour
         {
             tap = true;
             startTouch = Input.mousePosition;
-            Debug.Log("touch");
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("touchUp");
             startTouch = swipeDelta = Vector2.zero;
         }
         #endregion

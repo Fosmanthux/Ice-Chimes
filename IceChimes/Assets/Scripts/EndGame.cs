@@ -8,6 +8,7 @@ public class EndGame : MonoBehaviour
     public GameObject loseMenu;
     bool isEnd = false;
     private int winCondition = 2;
+    public GameObject pausebutton;
 
     // Start is called before the first frame update
     void Start()
@@ -45,11 +46,13 @@ public class EndGame : MonoBehaviour
     public void showWin()
     {
         winMenu.SetActive(true);
+        pausebutton.SetActive(false);
     }
 
     void showLose()
     {
         loseMenu.SetActive(true);
+        pausebutton.SetActive(false);
     }
 
 }

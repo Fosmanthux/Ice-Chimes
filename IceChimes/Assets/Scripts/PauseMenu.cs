@@ -7,13 +7,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    public GameObject winMenu;
-    public GameObject loseMenu;
     public GameObject pauseMenuUI;
     public GameObject pausebutton;
-    bool endGame, win, lose;
-
-
 
     void Update()
     {
@@ -27,20 +22,6 @@ public class PauseMenu : MonoBehaviour
             {
                 Pause();
             }
-        }
-
-        if (endGame)
-        {
-            if (win)
-            {
-                showWin();
-            }
-
-            else if (lose)
-            {
-                showLose();
-            }
-
         }
     }
 
@@ -64,22 +45,18 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
 
-        //SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(0);
+    }
+
+    public void LoadLevel1()
+    {
+
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    public void showWin()
-    {
-        winMenu.SetActive(true);
-    }
-
-    void showLose()
-    {
-        loseMenu.SetActive(true);
     }
 
 }

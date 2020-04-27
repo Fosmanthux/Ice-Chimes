@@ -28,11 +28,11 @@ public class Player : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, pos, speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > leftBoarder && transform.position.y ==0 || transform.position.x > leftBoarder && MobileInput.Instance.SwipeLeft) // bug when going right or left while being in a jump
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > leftBoarder && transform.position.y ==0 || transform.position.x > leftBoarder && MobileInput.Instance.SwipeLeft && transform.position.y == 0) // bug when going right or left while being in a jump
         {
             pos = new Vector3(transform.position.x - Xincrement, transform.position.y, transform.position.z);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < rightBoarder && transform.position.y == 0 || transform.position.x < rightBoarder && MobileInput.Instance.SwipeRight)
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < rightBoarder && transform.position.y == 0 || transform.position.x < rightBoarder && MobileInput.Instance.SwipeRight && transform.position.y == 0)
         {
             pos = new Vector3(transform.position.x + Xincrement, transform.position.y, transform.position.z);
         }
