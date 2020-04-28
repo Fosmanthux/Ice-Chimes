@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         rgbd = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards(transform.position, pos, speed * Time.deltaTime);
 
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
         {
             pos = new Vector3(transform.position.x + Xincrement, transform.position.y, transform.position.z);
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
             Debug.Log(Input.inputString);
             rgbd.velocity += new Vector3(0, jumpHight, 0);
