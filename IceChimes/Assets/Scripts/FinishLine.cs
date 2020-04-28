@@ -1,0 +1,50 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FinishLine : MonoBehaviour
+{
+    public GameObject winMenu;
+    public GameObject loseMenu;
+    bool isEnd = false;
+    public GameObject pausebutton;
+    private int winCondition = 2;
+
+    void Update()
+    {
+        if (isEnd)
+        {
+            Time.timeScale = 0.5f;
+            if (GameController.gameControllerInstance.scores >= winCondition)
+            {
+                showWin();
+            }
+
+            else if (GameController.gameControllerInstance.scores < winCondition)
+            {
+                showLose();
+            }
+
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            isEnd = true;
+        }
+    }
+
+    void showWin()
+    {
+        winMenu.SetActive(true);
+        pausebutton.SetActive(false);
+    }
+
+    void showLose()
+    {
+        loseMenu.SetActive(true);
+        pausebutton.SetActive(false);
+    }
+}
