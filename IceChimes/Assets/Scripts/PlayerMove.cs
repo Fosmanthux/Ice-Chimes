@@ -25,7 +25,7 @@ public class PlayerMove : MonoBehaviour
         rgbd = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
 
         if (Menu.isfox){

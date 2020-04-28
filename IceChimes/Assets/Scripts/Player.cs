@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Coin"))
         {
             other.gameObject.SetActive(false);
-            GameController.gameControllerInstance.coins += coinValue;
+            GameController.gameControllerInstance.coins++;
         }
     }
 }
