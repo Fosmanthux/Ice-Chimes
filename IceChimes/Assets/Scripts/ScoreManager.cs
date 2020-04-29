@@ -7,6 +7,8 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
     public static int finalScore;
+    public static int shopScore = 0;
+
     public Text text;
     int score;
     bool endGame = false;
@@ -29,8 +31,9 @@ public class ScoreManager : MonoBehaviour
     public void ChangeScore(int coinValue)
     {
         score += coinValue;
-        text.text = "Score: " + score.ToString();
+        text.text = "Coins: " + score.ToString();
         finalScore = score;
+        shopScore ++;
     }
 
 }

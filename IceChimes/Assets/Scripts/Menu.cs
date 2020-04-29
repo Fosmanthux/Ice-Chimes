@@ -6,17 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+
+
     public static Menu instance;
     public GameObject characterPane;
     public GameObject shopPane;
     public GameObject playPane;
     public GameObject settings;
     public GameObject stageMode;
+    public Text coinText;
 
     public static bool isbear, isfox;
 
     void Start()
     {
+        Time.timeScale = 1f;
         if (instance == null)
         {
             instance = this;
@@ -33,6 +37,7 @@ public class Menu : MonoBehaviour
 
     public void showShop()
     {
+        coinText.text = "Coins: " + ScoreManager.shopScore.ToString();
         playPane.SetActive(false);
         characterPane.SetActive(false);
         shopPane.SetActive(true);
