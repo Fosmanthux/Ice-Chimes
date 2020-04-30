@@ -14,6 +14,7 @@ public class Menu : MonoBehaviour
     public GameObject playPane;
     public GameObject settings;
     public GameObject stageMode;
+
     public Text coinText;
 
     public static bool isbear, isfox;
@@ -26,6 +27,7 @@ public class Menu : MonoBehaviour
             instance = this;
         }
     }
+
 
     public void showCharacter()
     {
