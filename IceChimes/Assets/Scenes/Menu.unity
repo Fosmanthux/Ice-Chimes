@@ -2224,7 +2224,7 @@ GameObject:
   - component: {fileID: 1081069660}
   - component: {fileID: 1081069659}
   m_Layer: 5
-  m_Name: Infinite mode pane
+  m_Name: Infinite mode panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2386,7 +2386,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1180398784}
   - component: {fileID: 1180398785}
-  - component: {fileID: 1180398786}
   m_Layer: 5
   m_Name: HardMode
   m_TagString: Untagged
@@ -2462,22 +2461,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
---- !u!114 &1180398786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180398783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 180e54e48a9be4cdebdbfdd599fb0660, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  widthTimes: 0
-  heightTimes: 0
-  posX: 0
-  posY: 0
 --- !u!1 &1237115773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2832,7 +2815,7 @@ GameObject:
   - component: {fileID: 1291064547}
   - component: {fileID: 1291064546}
   m_Layer: 5
-  m_Name: Shop pane
+  m_Name: Shop panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3359,7 +3342,7 @@ GameObject:
   - component: {fileID: 1647954425}
   - component: {fileID: 1647954422}
   m_Layer: 5
-  m_Name: Quit Button
+  m_Name: Quit Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3813,7 +3796,7 @@ GameObject:
   - component: {fileID: 1845101276}
   - component: {fileID: 1845101275}
   m_Layer: 5
-  m_Name: Stage mode pane
+  m_Name: Stage mode panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3889,7 +3872,7 @@ GameObject:
   - component: {fileID: 1895006163}
   - component: {fileID: 1895006162}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Game Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4035,7 +4018,7 @@ GameObject:
   - component: {fileID: 1923147664}
   - component: {fileID: 1923147663}
   m_Layer: 5
-  m_Name: Character pane
+  m_Name: Character panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4252,7 +4235,7 @@ GameObject:
   - component: {fileID: 1942826815}
   - component: {fileID: 1942826814}
   m_Layer: 5
-  m_Name: Random  mode pane
+  m_Name: Random  mode panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4509,7 +4492,7 @@ GameObject:
   - component: {fileID: 2072419351}
   - component: {fileID: 2072419350}
   m_Layer: 5
-  m_Name: Play pane
+  m_Name: Play panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4910,4 +4893,4 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
