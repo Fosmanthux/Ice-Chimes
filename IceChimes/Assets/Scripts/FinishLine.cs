@@ -15,12 +15,12 @@ public class FinishLine : MonoBehaviour
         if (isEnd)
         {
             Time.timeScale = 0.5f;
-            if (GameController.gameControllerInstance.scores >= winCondition)
+            if (GameManager.instance.scores >= winCondition)
             {
                 showWin();
             }
 
-            else if (GameController.gameControllerInstance.scores < winCondition)
+            else if (GameManager.instance.scores < winCondition)
             {
                 showLose();
             }
