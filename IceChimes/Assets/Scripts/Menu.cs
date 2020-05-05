@@ -14,6 +14,8 @@ public class Menu : MonoBehaviour
     public GameObject playPane;
     public GameObject settings;
     public GameObject stageMode;
+    public GameObject randomMode;
+    public GameObject infiniteMode;
 
     public Text coinText;
 
@@ -65,6 +67,16 @@ public class Menu : MonoBehaviour
     public void showStage()
     {
         stageMode.SetActive(true);
+    }
+
+    public void showRandom()
+    {
+        randomMode.SetActive(true);
+    }
+
+    public void showInfinite()
+    {
+        infiniteMode.SetActive(true);
     }
 
     public void LoadLevel1()
