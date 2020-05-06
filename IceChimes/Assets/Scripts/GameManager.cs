@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    public GameObject ReadyToPlay;
+
     public int scores;
     public int noteScore;
 
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
+                ReadyToPlay.SetActive(false);
                 startPlaying = true;
                 theBS.hasStarted = true;
 

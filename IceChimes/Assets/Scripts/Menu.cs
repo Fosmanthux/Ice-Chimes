@@ -67,7 +67,6 @@ public class Menu : MonoBehaviour
 
     public void LoadMenu()
     {
-
         SceneManager.LoadScene(0);
     }
 

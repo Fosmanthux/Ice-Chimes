@@ -8,7 +8,7 @@ public class FinishLine : MonoBehaviour
     public GameObject loseMenu;
     bool isEnd = false;
     public GameObject pausebutton;
-    private int winCondition = 2;
+    public int winCondition = 100;
 
     void Update()
     {
