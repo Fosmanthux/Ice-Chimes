@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
-        scoreText.text = "Score: 0";
+        scoreText.text = "[ 0 ]";
     }
 
     // Update is called once per frame
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Hit");
 
         scores += noteScore;
-        scoreText.text = "Score: " + scores;
+        scoreText.text = "[ " + scores + " ]";
     }
 
     public void NoteMissed()
