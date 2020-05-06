@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -67,6 +68,9 @@ public class GameManager : MonoBehaviour
     public void NoteMissed()
     {
         Debug.Log("Miss");
+
+        scores -= noteScore / 2;
+        scoreText.text = "[ " + scores + " ]";
     }
 
     public void CoinGet()

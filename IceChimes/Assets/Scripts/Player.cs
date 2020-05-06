@@ -18,6 +18,11 @@ public class Player : MonoBehaviour
             other.gameObject.SetActive(false);
             GameManager.instance.CoinGet();
         }
+
+        if (other.gameObject.CompareTag("Hazard"))
+        {
+            GameManager.instance.NoteMissed();
+        }
     }
 
     private void OnTriggerExit(Collider other)
