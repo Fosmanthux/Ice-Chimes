@@ -17,10 +17,12 @@ public class PauseMenu : MonoBehaviour
             if (GameIsPaused)
             {
                 Resume();
+                GameManager.instance.theMusic.Play();
             }
             else
             {
                 Pause();
+                GameManager.instance.theMusic.Pause();
             }
         }
     }
