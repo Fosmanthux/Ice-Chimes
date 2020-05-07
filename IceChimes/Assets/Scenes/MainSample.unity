@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.332719, g: 0.43587962, b: 0.5797444, a: 1}
+  m_IndirectSpecularColor: {r: 0.332718, g: 0.43588057, b: 0.5797472, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16338,7 +16338,7 @@ SpriteRenderer:
   m_Size: {x: 10.24, y: 6.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1213480690
@@ -17791,6 +17791,7 @@ MonoBehaviour:
   theMusic: {fileID: 516849622}
   startPlaying: 0
   theBS: {fileID: 1365983011}
+  ReadyToPlay: {fileID: 0}
   scores: 0
   noteScore: 10
   coins: 0
@@ -24729,6 +24730,7 @@ MonoBehaviour:
   winMenu: {fileID: 910718391}
   loseMenu: {fileID: 448760070}
   pausebutton: {fileID: 2000990221}
+  winCondition: 100
 --- !u!65 &1786506439
 BoxCollider:
   m_ObjectHideFlags: 0
