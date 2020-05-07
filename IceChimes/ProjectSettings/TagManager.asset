@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Coin
   - Killzone
+  - Note
+  - Hazard
   layers:
   - Default
   - TransparentFX
