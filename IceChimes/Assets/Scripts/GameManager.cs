@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public int coins;
     public int coinValue;
 
+    public static int finalScore;
+    public static int shopScore = 0;
+
     /* public int combos;
     public int comboTracker;
     public int[] comboThresholds; */
@@ -82,6 +85,7 @@ public class GameManager : MonoBehaviour
 
         coins += coinValue;
         coinText.text = "Coins: " + coins;
+        shopScore++;
     }
 
 }
