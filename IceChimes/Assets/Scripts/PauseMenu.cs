@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,6 +36,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+
         GameManager.instance.theMusic.Pause();
         pausebutton.SetActive(false);
         pauseMenuUI.SetActive(true);
