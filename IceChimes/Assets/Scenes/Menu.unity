@@ -201,7 +201,6 @@ GameObject:
   - component: {fileID: 5710107}
   - component: {fileID: 5710106}
   - component: {fileID: 5710110}
-  - component: {fileID: 5710109}
   m_Layer: 5
   m_Name: Stage Mode
   m_TagString: Untagged
@@ -318,22 +317,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5710104}
   m_CullTransparentMesh: 0
---- !u!114 &5710109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5710104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 180e54e48a9be4cdebdbfdd599fb0660, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  widthTimes16: 0
-  heightTimes16: 0
-  widthTimes9: 0
-  heightTimes9: 0
 --- !u!114 &5710110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,11 +2300,22 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1009196254}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2044649921}
+        m_MethodName: setLevel2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1009196254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3214,7 +3208,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2044649921}
-        m_MethodName: LoadLevel1
+        m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3341,7 +3335,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1419792447}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2044649921}
+        m_MethodName: setLevel1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1419792447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3711,7 +3716,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1711249440}
   m_OnClick:
     m_PersistentCalls:
@@ -4143,7 +4148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1845101274
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4700,6 +4705,8 @@ MonoBehaviour:
   stageMode: {fileID: 1845101273}
   randomMode: {fileID: 1942826813}
   infiniteMode: {fileID: 1081069658}
+  song2: {fileID: 1009196253}
+  song3: {fileID: 1711249439}
   coinText: {fileID: 1250666791}
 --- !u!114 &2044649922
 MonoBehaviour:

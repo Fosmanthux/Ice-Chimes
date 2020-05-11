@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,9 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-
-
-    public static Menu instance;
     public GameObject characterPane;
     public GameObject shopPane;
     public GameObject playPane;
@@ -16,22 +14,29 @@ public class Menu : MonoBehaviour
     public GameObject stageMode;
     public GameObject randomMode;
     public GameObject infiniteMode;
+    public Button song2, song3;
+    private int levelToLoad;
+    System.Random rnd;
 
     public Text coinText;
 
     public static bool isbear, isfox;
 
-    private bool songUnlocked2 = false;
-    private bool songUnlocked3 = false;
-
     void Start()
     {
-        instance = this;
-
+        rnd = new System.Random();
         Time.timeScale = 1f;
-        if (instance == null)
+    }
+
+    void Update()
+    {
+        if (FinishLine.instance != null && FinishLine.instance.scene == 1 && FinishLine.instance.unlocked)
         {
-            instance = this;
+            song2.interactable = true;
+        }
+        else if (FinishLine.instance != null && FinishLine.instance.scene == 2 && FinishLine.instance.unlocked)
+        {
+            song3.interactable = true;
         }
     }
 
@@ -71,11 +76,14 @@ public class Menu : MonoBehaviour
 
     public void showStage()
     {
+        levelToLoad = 0;
         stageMode.SetActive(true);
     }
 
     public void showRandom()
     {
+        levelToLoad = rnd.Next(1, 4);
+        Debug.Log(levelToLoad);
         randomMode.SetActive(true);
     }
 
@@ -84,9 +92,23 @@ public class Menu : MonoBehaviour
         infiniteMode.SetActive(true);
     }
 
-    public void LoadLevel1()
+    public void setLevel1(){
+        levelToLoad = 1;
+    }
+
+    public void setLevel2()
     {
-        SceneManager.LoadScene(1);
+        levelToLoad = 2;
+    }
+
+    public void LoadLevel()
+    {
+        if (levelToLoad != 0)
+        {
+            SceneManager.LoadScene(levelToLoad);
+        }
+
+
     }
 
     public void LoadMenu()
@@ -99,7 +121,8 @@ public class Menu : MonoBehaviour
         Application.Quit();
     }
 
-    public void setFox(){
+    public void setFox()
+    {
         isbear = false;
         isfox = true;
     }
@@ -108,18 +131,6 @@ public class Menu : MonoBehaviour
     {
         isfox = false;
         isbear = true;
-    }
-
-    public void unlockSong(string name){
-        if(name == "Song 1"){
-            songUnlocked2 = true;
-            Debug.Log("unlocked");
-        }
-
-        if (name == "Song 2")
-        {
-            songUnlocked3 = true;
-        }
     }
 
 }

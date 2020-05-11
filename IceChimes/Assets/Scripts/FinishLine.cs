@@ -6,11 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
+    public static FinishLine instance { set; get; }
     public GameObject winMenu;
     public GameObject loseMenu;
     bool isEnd = false;
     public GameObject pausebutton;
     public int winCondition = 2;
+    public int scene;
+    public bool unlocked = false;
+
+    void Awake(){
+        instance = this;
+    }
 
     void Update()
     {
@@ -21,6 +28,7 @@ public class FinishLine : MonoBehaviour
             if (GameManager.instance.scores >= winCondition)
             {
                 showWin();
+                unlocked = true;
             }
 
             else if (GameManager.instance.scores < winCondition)
