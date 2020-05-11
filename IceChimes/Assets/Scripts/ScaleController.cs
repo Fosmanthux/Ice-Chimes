@@ -12,7 +12,7 @@ public class ScaleController : MonoBehaviour
             this.transform.localScale = new Vector3(newScale, newScale, newScale);
         }
 
-        else if (Screen.width > Screen.height)
+        else if (Screen.width < Screen.height)
         {
         
             this.transform.localScale = new Vector3(1, 1, 1);

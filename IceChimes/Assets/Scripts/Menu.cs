@@ -21,8 +21,13 @@ public class Menu : MonoBehaviour
 
     public static bool isbear, isfox;
 
+    private bool songUnlocked2 = false;
+    private bool songUnlocked3 = false;
+
     void Start()
     {
+        instance = this;
+
         Time.timeScale = 1f;
         if (instance == null)
         {
@@ -103,6 +108,18 @@ public class Menu : MonoBehaviour
     {
         isfox = false;
         isbear = true;
+    }
+
+    public void unlockSong(string name){
+        if(name == "Song 1"){
+            songUnlocked2 = true;
+            Debug.Log("unlocked");
+        }
+
+        if (name == "Song 2")
+        {
+            songUnlocked3 = true;
+        }
     }
 
 }

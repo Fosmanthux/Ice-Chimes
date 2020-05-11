@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
@@ -9,12 +10,13 @@ public class FinishLine : MonoBehaviour
     public GameObject loseMenu;
     bool isEnd = false;
     public GameObject pausebutton;
-    public int winCondition = 100;
+    public int winCondition = 2;
 
     void Update()
     {
         if (isEnd)
         {
+        
             Time.timeScale = 0.5f;
             if (GameManager.instance.scores >= winCondition)
             {
@@ -48,4 +50,5 @@ public class FinishLine : MonoBehaviour
         loseMenu.SetActive(true);
         pausebutton.SetActive(false);
     }
+
 }

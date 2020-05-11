@@ -24730,7 +24730,7 @@ MonoBehaviour:
   winMenu: {fileID: 910718391}
   loseMenu: {fileID: 448760070}
   pausebutton: {fileID: 2000990221}
-  winCondition: 100
+  winCondition: 2
 --- !u!65 &1786506439
 BoxCollider:
   m_ObjectHideFlags: 0
