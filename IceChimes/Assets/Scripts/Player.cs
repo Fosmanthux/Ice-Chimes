@@ -4,22 +4,32 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int coinValue = 1;
-    public int noteScore = 10;
-
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Note"))
         {
-            GameController.gameControllerInstance.scores += noteScore;
-        }
+            GameManager.instance.NoteHit();
+        } 
 
 
         if (other.gameObject.CompareTag("Coin"))
         {
             other.gameObject.SetActive(false);
-            GameController.gameControllerInstance.coins++;
+            GameManager.instance.CoinGet();
+        }
+
+        if (other.gameObject.CompareTag("Hazard"))
+        {
+            GameManager.instance.NoteMissed();
         }
     }
+
+/*    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Note"))
+        {
+            GameManager.instance.NoteMissed();
+        }
+    }  */
 }

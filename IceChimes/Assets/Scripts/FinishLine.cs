@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FinishLine : MonoBehaviour
 {
@@ -8,19 +9,19 @@ public class FinishLine : MonoBehaviour
     public GameObject loseMenu;
     bool isEnd = false;
     public GameObject pausebutton;
-    private int winCondition = 2;
+    public int winCondition = 100;
 
     void Update()
     {
         if (isEnd)
         {
             Time.timeScale = 0.5f;
-            if (GameController.gameControllerInstance.scores >= winCondition)
+            if (GameManager.instance.scores >= winCondition)
             {
                 showWin();
             }
 
-            else if (GameController.gameControllerInstance.scores < winCondition)
+            else if (GameManager.instance.scores < winCondition)
             {
                 showLose();
             }

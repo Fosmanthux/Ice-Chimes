@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,15 +27,17 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        GameManager.instance.theMusic.Play();
         pausebutton.SetActive(true);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-
     }
 
     public void Pause()
     {
+
+        GameManager.instance.theMusic.Pause();
         pausebutton.SetActive(false);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -61,7 +63,3 @@ public class PauseMenu : MonoBehaviour
 
 }
 
-/*for audio
- * if (PauseMenu.GameIsPause){
- * s.source.Play or wtv
- * } */
