@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    System.Random rnd;
+
     public GameObject characterPane;
     public GameObject shopPane;
     public GameObject playPane;
@@ -14,25 +16,28 @@ public class Menu : MonoBehaviour
     public GameObject stageMode;
     public GameObject randomMode;
     public GameObject infiniteMode;
+    public Button play;
     public Button song2, song3;
     private int levelToLoad;
-    System.Random rnd;
 
     public Text coinText;
 
     public static bool isbear, isfox;
+    //public static bool isInfiniteMode = false;
 
     void Start()
     {
         rnd = new System.Random();
-        Time.timeScale = 1f;
+        Time.timeScale = 1f;      
     }
 
+   
     void Update()
     {
+        song2.interactable = true;
         if (FinishLine.instance != null && FinishLine.instance.scene == 1 && FinishLine.instance.unlocked)
         {
-            song2.interactable = true;
+            //song2.interactable = true;
         }
         else if (FinishLine.instance != null && FinishLine.instance.scene == 2 && FinishLine.instance.unlocked)
         {
@@ -77,6 +82,9 @@ public class Menu : MonoBehaviour
     public void showStage()
     {
         levelToLoad = 0;
+        if (levelToLoad == 0){
+            play.interactable = false;
+        }
         stageMode.SetActive(true);
     }
 
@@ -94,26 +102,40 @@ public class Menu : MonoBehaviour
 
     public void setLevel1(){
         levelToLoad = 1;
+        play.interactable = true;
+
     }
 
     public void setLevel2()
     {
         levelToLoad = 2;
+        play.interactable = true;
+
     }
+
+    /*public void playInfinite(){
+        isInfiniteMode = true;
+        SceneManager.LoadScene(1);
+    }*/
 
     public void LoadLevel()
     {
-        if (levelToLoad != 0)
+       if (levelToLoad != 0)
         {
             SceneManager.LoadScene(levelToLoad);
         }
-
-
     }
 
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void goBack(){
+        infiniteMode.SetActive(false);
+        stageMode.SetActive(false);
+        randomMode.SetActive(false);
+        playPane.SetActive(true);
     }
 
     public void QuitGame()

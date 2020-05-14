@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1f;
         instance = this;
-
         scoreText.text = "[ 0 ]";
     }
 
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
 
     public void NoteHit()
     {
-        Debug.Log("Hit");
+        //Debug.Log("Hit");
 
         scores += noteScore;
         scoreText.text = "[ " + scores + " ]";
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void NoteMissed()
     {
-        Debug.Log("Miss");
+        //Debug.Log("Miss");
 
         scores -= noteScore / 2;
         scoreText.text = "[ " + scores + " ]";
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
 
     public void CoinGet()
     {
-        Debug.Log("Coin");
+        //Debug.Log("Coin");
 
         coins += coinValue;
         coinText.text = "Coins: " + coins;

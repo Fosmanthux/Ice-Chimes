@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class SoundController : MonoBehaviour
 {
     public Toggle soundEffect;
+    public AudioSource theSound;
 
-    public AudioClip btnSound;
     private AudioSource source { get { return GetComponent<AudioSource>(); }}
     private Button button { get { return GetComponent<Button>();}}
     // Start is called before the first frame update
@@ -18,17 +18,18 @@ public class SoundController : MonoBehaviour
         source.playOnAwake = false;
 
         gameObject.AddComponent<AudioSource>();
-        source.clip = btnSound;
+       // source.clip = btnSound;
 
         button.onClick.AddListener(() => PlaySound());
     }
-
-    // Update is called once per frame
+     // Update is called once per frame
     void PlaySound()
     {
-        if (soundEffect.isOn)
+        if (SoundEffectsToggle.isOn == true || soundEffect.isOn)
         {
-            source.PlayOneShot(btnSound);
+            source.pitch = Random.Range(0.5f, 1.5f);
+            //source.PlayOneShot(btnSound, 0.5f);
+            theSound.Play();
         }
     }
 }
