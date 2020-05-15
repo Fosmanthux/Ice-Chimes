@@ -34,6 +34,7 @@ public class Menu : MonoBehaviour
    
     void Update()
     {
+    
         song2.interactable = true;
         if (FinishLine.instance != null && FinishLine.instance.scene == 1 && FinishLine.instance.unlocked)
         {
@@ -48,9 +49,9 @@ public class Menu : MonoBehaviour
 
     public void showCharacter()
     {
-        shopPane.SetActive(false);
-        playPane.SetActive(false);
-        characterPane.SetActive(true);
+       // shopPane.SetActive(false);
+        //playPane.SetActive(false);
+        //characterPane.SetActive(true);
 
     }
 
@@ -64,19 +65,19 @@ public class Menu : MonoBehaviour
 
     public void showPlay()
     {
-        shopPane.SetActive(false);
-        characterPane.SetActive(false);
-        playPane.SetActive(true);
+        //shopPane.SetActive(false);
+        //characterPane.SetActive(false);
+        //playPane.SetActive(true);
     }
+    
 
-    public void showSetting()
-    {
+     public void showSetting(){
         settings.SetActive(true);
     }
 
     public void hideSetting()
     {
-        settings.SetActive(false);
+        //settings.SetActive(false);
     }
 
     public void showStage()
@@ -120,7 +121,8 @@ public class Menu : MonoBehaviour
 
     public void LoadLevel()
     {
-       if (levelToLoad != 0)
+
+        if (levelToLoad != 0)
         {
             SceneManager.LoadScene(levelToLoad);
         }
@@ -133,9 +135,9 @@ public class Menu : MonoBehaviour
 
     public void goBack(){
         infiniteMode.SetActive(false);
-        stageMode.SetActive(false);
+        //stageMode.SetActive(false);
         randomMode.SetActive(false);
-        playPane.SetActive(true);
+        //playPane.SetActive(true);
     }
 
     public void QuitGame()
