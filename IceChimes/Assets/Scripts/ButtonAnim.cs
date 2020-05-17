@@ -8,6 +8,7 @@ public class ButtonAnim : MonoBehaviour
 
     [SerializeField] Animator animator;
     public Button button;
+    public int btnNmb;
     private bool show = false;
 
     void Start()
@@ -18,10 +19,7 @@ public class ButtonAnim : MonoBehaviour
 
     void setPressed()
     {
-        show = true;
-
-        Debug.Log("show");
-       
+        show = true;       
     }
 
     void Update()
@@ -29,9 +27,35 @@ public class ButtonAnim : MonoBehaviour
 
         if (show)
         {
-            animator.SetBool("show", true);
-            Debug.Log("show2");
-            animator.SetBool("out", false);
+
+
+            if (btnNmb == 0)
+            {
+                animator.SetBool("settingIn", true);
+                animator.SetBool("settingOut", false);
+            }
+            else if (btnNmb == 1)
+            {
+                animator.SetBool("charIn", true);
+                animator.SetBool("charOut", false);
+            }
+
+            else if (btnNmb == 2)
+            {
+                animator.SetBool("playIn", true);
+                animator.SetBool("playOut", false);
+            }
+
+            else if (btnNmb == 3)
+            {
+                animator.SetBool("shopIn", true);
+                animator.SetBool("shopOut", false);
+            }
+            else if (btnNmb == 4)
+            {
+                animator.SetBool("stageIn", true);
+                animator.SetBool("stageOut", false);
+            }
             show = false;
         }
     }

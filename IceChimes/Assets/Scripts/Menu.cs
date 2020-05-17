@@ -58,9 +58,9 @@ public class Menu : MonoBehaviour
     public void showShop()
     {
         coinText.text = "Coins: " + GameManager.shopScore.ToString();
-        playPane.SetActive(false);
-        characterPane.SetActive(false);
-        shopPane.SetActive(true);
+       // playPane.SetActive(false);
+       // characterPane.SetActive(false);
+        //shopPane.SetActive(true);
     }
 
     public void showPlay()
