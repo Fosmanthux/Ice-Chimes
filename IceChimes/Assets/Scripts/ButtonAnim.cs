@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ButtonAnim : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class ButtonAnim : MonoBehaviour
     public Button button;
     public int btnNmb;
     private bool show = false;
-
+   
     void Start()
     {
         Button btn = button.GetComponent<Button>();
@@ -22,12 +23,12 @@ public class ButtonAnim : MonoBehaviour
         show = true;       
     }
 
+
+
     void Update()
     {
-
         if (show)
         {
-
 
             if (btnNmb == 0)
             {
@@ -56,6 +57,24 @@ public class ButtonAnim : MonoBehaviour
                 animator.SetBool("stageIn", true);
                 animator.SetBool("stageOut", false);
             }
+
+            else if (btnNmb == 5)
+            {
+                animator.SetBool("randomIn", true);
+                animator.SetBool("randomOut", false);
+            }
+
+            else if (btnNmb == 6)
+            {
+                animator.SetBool("infIn", true);
+                animator.SetBool("infOut", false);
+            }
+            else if (btnNmb == 7)
+            {
+                animator.SetBool("scale", true);
+                animator.SetBool("unscale", false);
+            }
+
             show = false;
         }
     }

@@ -9,16 +9,19 @@ public class Menu : MonoBehaviour
 {
     System.Random rnd;
 
-    public GameObject characterPane;
+    /*public GameObject characterPane;
     public GameObject shopPane;
     public GameObject playPane;
     public GameObject settings;
     public GameObject stageMode;
     public GameObject randomMode;
-    public GameObject infiniteMode;
+    public GameObject infiniteMode;*/
+
     public Button play;
     public Button song2, song3;
+
     private int levelToLoad;
+    private int songsIndex = 3;
 
     public Text coinText;
 
@@ -46,39 +49,11 @@ public class Menu : MonoBehaviour
         }
     }
 
-
-    public void showCharacter()
-    {
-       // shopPane.SetActive(false);
-        //playPane.SetActive(false);
-        //characterPane.SetActive(true);
-
-    }
-
     public void showShop()
     {
         coinText.text = "Coins: " + GameManager.shopScore.ToString();
-       // playPane.SetActive(false);
-       // characterPane.SetActive(false);
-        //shopPane.SetActive(true);
     }
 
-    public void showPlay()
-    {
-        //shopPane.SetActive(false);
-        //characterPane.SetActive(false);
-        //playPane.SetActive(true);
-    }
-    
-
-     public void showSetting(){
-        settings.SetActive(true);
-    }
-
-    public void hideSetting()
-    {
-        //settings.SetActive(false);
-    }
 
     public void showStage()
     {
@@ -86,63 +61,30 @@ public class Menu : MonoBehaviour
         if (levelToLoad == 0){
             play.interactable = false;
         }
-        stageMode.SetActive(true);
-    }
-
-    public void showRandom()
-    {
-        levelToLoad = rnd.Next(1, 4);
-        Debug.Log(levelToLoad);
-        randomMode.SetActive(true);
-    }
-
-    public void showInfinite()
-    {
-        infiniteMode.SetActive(true);
     }
 
     public void setLevel1(){
-        levelToLoad = 1;
-        play.interactable = true;
-
+     levelToLoad = 1;
+     play.interactable = true;
     }
 
     public void setLevel2()
     {
         levelToLoad = 2;
         play.interactable = true;
-
     }
 
-    /*public void playInfinite(){
-        isInfiniteMode = true;
-        SceneManager.LoadScene(1);
-    }*/
+    public void showRandom()
+   {
+       levelToLoad = rnd.Next(1, 3);
+   }
 
     public void LoadLevel()
     {
-
-        if (levelToLoad != 0)
-        {
+       if (levelToLoad > 0 && levelToLoad <= songsIndex)
+       {
             SceneManager.LoadScene(levelToLoad);
         }
-    }
-
-    public void LoadMenu()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    public void goBack(){
-        infiniteMode.SetActive(false);
-        //stageMode.SetActive(false);
-        randomMode.SetActive(false);
-        //playPane.SetActive(true);
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 
     public void setFox()
@@ -156,5 +98,53 @@ public class Menu : MonoBehaviour
         isfox = false;
         isbear = true;
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+
+
+    /*
+     public void LoadMenu()
+     {
+         SceneManager.LoadScene(0);
+     }
+
+     public void showPlay()
+     {
+         shopPane.SetActive(false);
+         characterPane.SetActive(false);
+         playPane.SetActive(true);
+     }
+
+     public void showInfinite()
+     {
+         infiniteMode.SetActive(true);
+     }
+
+     public void showSetting()
+     {
+         settings.SetActive(true);
+     }
+
+     public void hideSetting()
+     {
+         settings.SetActive(false);
+     }
+
+     public void goBack()
+     {
+         infiniteMode.SetActive(false);
+         stageMode.SetActive(false);
+         / randomMode.SetActive(false);
+         playPane.SetActive(true);
+     }
+
+     //public void playInfinite(){
+     //  isInfiniteMode = true;
+     //    SceneManager.LoadScene(1);}
+     */
 
 }

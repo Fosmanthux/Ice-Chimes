@@ -51,10 +51,25 @@ public class ButtonAnimOut : MonoBehaviour
                 animator.SetBool("charIn", false);
                 animator.SetBool("playIn", false);
             }
-            if (btnNmb == 4)
+            else if (btnNmb == 4)
             {
                 animator.SetBool("stageOut", true);
                 animator.SetBool("stageIn", false);
+            }
+            else if (btnNmb == 5)
+            {
+                animator.SetBool("randomOut", true);
+                animator.SetBool("randomIn", false);
+            }
+            else if (btnNmb == 6)
+            {
+                animator.SetBool("infOut", true);
+                animator.SetBool("infIn", false);
+            }
+            else if (btnNmb == 7)
+            {
+                animator.SetBool("unscale", true);
+                animator.SetBool("scale", false);
             }
             remove = false;
         }

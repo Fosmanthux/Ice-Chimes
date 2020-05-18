@@ -16,6 +16,9 @@ public class FinishLine : MonoBehaviour
     public bool unlocked = false;
     public Text winText, loseText;
 
+    [SerializeField] Animator animator;
+
+
 
     void Awake(){
         instance = this;
@@ -45,7 +48,7 @@ public class FinishLine : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isEnd = true;
-            Time.timeScale = 0f;
+            // Time.timeScale = 0f;
             /*if (Menu.isInfiniteMode)
             {
                 yield return new WaitForSeconds(4.0f);
@@ -58,17 +61,17 @@ public class FinishLine : MonoBehaviour
 
     void showWin()
     {
-        winMenu.SetActive(true);
-        pausebutton.SetActive(false);
-        winText.text = "Next level unlocked!" + '\n' + '\n' + "Score: " + GameManager.finalScore + '\n' + "Crystals: " +
+        animator.SetBool("win", true);
+        //winMenu.SetActive(true);
+        winText.text = "Next level unlocked!" + '\n' + '\n' + "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
             GameManager.shopScore;
     }
 
     void showLose()
     {
-        loseMenu.SetActive(true);
-        pausebutton.SetActive(false);
-        loseText.text = "Try again to unlock next level!" + '\n' + '\n' + "Score: " + GameManager.finalScore + '\n' + "Crystals: " +
+        animator.SetBool("lose", true);
+        //loseMenu.SetActive(true);
+        loseText.text = "Try again to unlock next level!" + '\n' + '\n' + "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
            GameManager.shopScore;
     }
       
