@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         instance = this;
-        scoreText.text = "[ 0 ]";
+        scoreText.text = "Score [ 0 ]";
     }
 
     // Update is called once per frame
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Hit");
 
         scores += noteScore;
-        scoreText.text = "[ " + scores + " ]";
+        scoreText.text = "Score [ " + scores + " ]";
     }
 
     public void NoteMissed()
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Miss");
 
         scores -= noteScore / 2;
-        scoreText.text = "[ " + scores + " ]";
+        scoreText.text = "Score [ " + scores + " ]";
     }
 
     public void CoinGet()
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Coin");
 
         coins += coinValue;
-        coinText.text = "Coins: " + coins;
+        coinText.text = "Crystals " + coins;
         shopScore++;
     }
 

@@ -9,6 +9,7 @@ public class MusicMenu : MonoBehaviour
 
     public AudioSource theMusic;
     public Toggle music;
+    public static bool isMusic = true;
 
 
 
@@ -20,19 +21,25 @@ public class MusicMenu : MonoBehaviour
             ToggleValueChanged(music);
         });
 
-        if (music.isOn)
+        if (isMusic)
         {
             theMusic.Play();
+            music.isOn = true;
         }
+
+        else music.isOn = false;
     }
 
     void ToggleValueChanged(Toggle change)
     {
         if (!music.isOn)
         {
+            isMusic = false;
             theMusic.Stop();
         }
-        else theMusic.Play();
+        else {
+            theMusic.Play();
+            isMusic = true; }
     }
 
 }

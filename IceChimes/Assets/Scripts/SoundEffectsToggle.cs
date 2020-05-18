@@ -7,7 +7,7 @@ public class SoundEffectsToggle : MonoBehaviour
 {
     public static SoundEffectsToggle instance;
     public Toggle soundEffects;
-    public static bool isOn;
+    public static bool isOn = true;
 
     void Awake(){
         instance = this;
@@ -20,6 +20,12 @@ public class SoundEffectsToggle : MonoBehaviour
         {
             ToggleValueChanged(soundEffects);
         });
+
+        if (isOn)
+        {
+            soundEffects.isOn = true;
+        }
+        else soundEffects.isOn = false;
     }
 
     void ToggleValueChanged(Toggle change)

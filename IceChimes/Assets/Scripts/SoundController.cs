@@ -7,7 +7,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class SoundController : MonoBehaviour
 {
-    public Toggle soundEffect;
     public AudioSource theSound;
 
     private AudioSource source { get { return GetComponent<AudioSource>(); }}
@@ -22,13 +21,11 @@ public class SoundController : MonoBehaviour
 
         button.onClick.AddListener(() => PlaySound());
     }
-     // Update is called once per frame
+
     void PlaySound()
     {
-        if (SoundEffectsToggle.isOn == true || soundEffect.isOn)
+        if (SoundEffectsToggle.isOn == true)
         {
-            source.pitch = Random.Range(0.5f, 1.5f);
-            //source.PlayOneShot(btnSound, 0.5f);
             theSound.Play();
         }
     }

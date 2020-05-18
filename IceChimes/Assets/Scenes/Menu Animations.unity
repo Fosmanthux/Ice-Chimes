@@ -330,7 +330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!82 &5710112
 AudioSource:
@@ -670,7 +669,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!82 &30814521
 AudioSource:
@@ -961,7 +959,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!114 &33033473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,7 +1029,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f2e7fad8026274bcca3df529d716aa85, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc22ded9f1b8248dbab172bf2ea20d93, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1192,7 +1190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!82 &82595460
 AudioSource:
@@ -1595,7 +1592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!82 &119463072
 AudioSource:
@@ -2040,7 +2036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!114 &278931122
 MonoBehaviour:
@@ -2189,7 +2184,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f2e7fad8026274bcca3df529d716aa85, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 422f5c8c1297e4b42a65acc0aa7023db, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2653,7 +2648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!114 &621259128
 MonoBehaviour:
@@ -2924,7 +2918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!1 &630898071
 GameObject:
@@ -3176,7 +3169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5460940668b4343bc86cf350b2616c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffects: {fileID: 0}
+  soundEffects: {fileID: 669555361}
 --- !u!1 &857990482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,7 +3314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!82 &857990488
 AudioSource:
@@ -3683,7 +3675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!114 &959461791
 MonoBehaviour:
@@ -4071,7 +4062,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!1 &1081069658
 GameObject:
@@ -4546,7 +4536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!1 &1250666790
 GameObject:
@@ -5257,7 +5246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!114 &1329945215
 MonoBehaviour:
@@ -5513,7 +5501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!1 &1466947752
 GameObject:
@@ -5544,7 +5531,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4290192b444fafe44a8d117d021354b3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.04
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5786,7 +5773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!82 &1475454911
 AudioSource:
@@ -6056,7 +6042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!82 &1647954426
 AudioSource:
@@ -6382,7 +6367,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!1 &1715422507
 GameObject:
@@ -6696,7 +6680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!1 &1827535378
 GameObject:
@@ -7842,7 +7825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bbbbfea359c4843a03c36c8c185e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 669555361}
   theSound: {fileID: 872374387}
 --- !u!1 &2103975609
 GameObject:
