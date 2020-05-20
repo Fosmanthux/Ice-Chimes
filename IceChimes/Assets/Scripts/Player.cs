@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] Animator animator;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             GameManager.instance.CoinGet();
+            animator.SetTrigger("+10");
         }
 
         if (other.gameObject.CompareTag("Hazard"))
@@ -25,11 +27,11 @@ public class Player : MonoBehaviour
         }
     }
 
-/*    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Note"))
+    /*    private void OnTriggerExit(Collider other)
         {
-            GameManager.instance.NoteMissed();
-        }
-    }  */
+            if (other.gameObject.CompareTag("Note"))
+            {
+                GameManager.instance.NoteMissed();
+            }
+        }  */
 }
