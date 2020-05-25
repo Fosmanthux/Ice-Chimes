@@ -5,15 +5,16 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    public ParticleSystem particles;
+    public ParticleSystem particles1, particles10;
 
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Note"))
         {
             animator.SetTrigger("+10");
             GameManager.instance.NoteHit();
-            particles.Play();
+            yield return new WaitForSeconds(0.3f);
+            particles10.Play();
         } 
 
 
@@ -22,14 +23,14 @@ public class Player : MonoBehaviour
             animator.SetTrigger("+1");
             other.gameObject.SetActive(false);
             GameManager.instance.CoinGet();
-            particles.Play();
+            yield return new WaitForSeconds(0.7f);
+           particles1.Play();
         }
 
         if (other.gameObject.CompareTag("Hazard"))
         {
             animator.SetTrigger("-5");
             GameManager.instance.NoteMissed();
-            particles.Play();
         }
     }
 

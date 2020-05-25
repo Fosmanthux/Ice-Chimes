@@ -17,6 +17,7 @@ public class FinishLine : MonoBehaviour
     public Text winText, loseText;
 
     [SerializeField] Animator animator;
+    public ParticleSystem snow;
 
 
 
@@ -47,7 +48,11 @@ public class FinishLine : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            snow.Play();
             isEnd = true;
+            other.gameObject.SetActive(false);
+            pausebutton.SetActive(false);
+
             // Time.timeScale = 0f;
             /*if (Menu.isInfiniteMode)
             {

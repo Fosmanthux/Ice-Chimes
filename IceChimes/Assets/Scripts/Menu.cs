@@ -53,7 +53,7 @@ public class Menu : MonoBehaviour
 
     public void showShop()
     {
-        coinText.text = "Coins: " + GameManager.shopScore.ToString();
+        coinText.text = "Crystals: " + GameManager.shopScore.ToString();
     }
 
 
