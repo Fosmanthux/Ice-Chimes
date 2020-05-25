@@ -26,6 +26,9 @@ public class Menu : MonoBehaviour
     public Text coinText;
 
     public static bool isbear, isfox;
+
+    public GameObject particles;
+    private Vector2 touch;
     //public static bool isInfiniteMode = false;
 
     void Start()
@@ -37,7 +40,6 @@ public class Menu : MonoBehaviour
    
     void Update()
     {
-    
         song2.interactable = true;
         if (FinishLine.instance != null && FinishLine.instance.scene == 1 && FinishLine.instance.unlocked)
         {
@@ -71,6 +73,12 @@ public class Menu : MonoBehaviour
     public void setLevel2()
     {
         levelToLoad = 2;
+        play.interactable = true;
+    }
+
+    public void setLevel3()
+    {
+        levelToLoad = 3;
         play.interactable = true;
     }
 

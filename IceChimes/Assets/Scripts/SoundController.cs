@@ -26,6 +26,7 @@ public class SoundController : MonoBehaviour
     {
         if (SoundEffectsToggle.isOn == true)
         {
+            theSound.pitch = Random.Range(0.5f, 1.5f);
             theSound.Play();
         }
     }
