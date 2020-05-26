@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public bool startPlaying;
 
-    public BeatsScroller theBS;
+    public BeatScroller2 theBS;
 
     public static GameManager instance;
 
