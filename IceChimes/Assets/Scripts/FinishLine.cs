@@ -11,17 +11,14 @@ public class FinishLine : MonoBehaviour
     public GameObject loseMenu;
     bool isEnd = false;
     public GameObject pausebutton;
-    public int winCondition = 0;
+    public static int winCondition = 120;
     public int scene;
-    public bool unlocked = false;
     public Text winText, loseText;
 
     [SerializeField] Animator animator;
     public ParticleSystem snow;
 
-
-
-    void Awake(){
+   void Awake(){
         instance = this;
     }
 
@@ -33,7 +30,16 @@ public class FinishLine : MonoBehaviour
             if (GameManager.instance.scores >= winCondition)
             {
                 showWin();
-                unlocked = true;
+                if(scene == 1){
+                    Menu.song2Unlock = true;
+                    PlayerPrefs.SetInt("song2", Menu.song2Unlock ? 1 : 0);
+
+                }
+                else if (scene == 2){
+                    Menu.song3Unlock = true;
+                    PlayerPrefs.SetInt("song3", Menu.song3Unlock ? 1 : 0);
+
+                }
             }
 
             else if (GameManager.instance.scores < winCondition)
@@ -69,7 +75,8 @@ public class FinishLine : MonoBehaviour
         animator.SetBool("win", true);
         //winMenu.SetActive(true);
         winText.text = "Next level unlocked!" + '\n' + '\n' + "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
-            GameManager.shopScore;
+            PlayerPrefs.GetInt("coins");
+        //sound effect
     }
 
     void showLose()
@@ -77,7 +84,7 @@ public class FinishLine : MonoBehaviour
         animator.SetBool("lose", true);
         //loseMenu.SetActive(true);
         loseText.text = "Try again to unlock next level!" + '\n' + '\n' + "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
-           GameManager.shopScore;
+           PlayerPrefs.GetInt("coins");
+        //sound effect
     }
-      
 }
