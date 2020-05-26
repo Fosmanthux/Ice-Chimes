@@ -27,10 +27,10 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        Time.timeScale = 1f;
         GameManager.instance.theMusic.Play();
         pausebutton.SetActive(true);
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
