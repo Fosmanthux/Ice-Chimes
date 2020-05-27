@@ -26,19 +26,14 @@ public class FinishLine : MonoBehaviour
     {
         if (isEnd)
         {
-            //add !Menu.isInfiniteMode
-            if (GameManager.instance.scores >= winCondition)
+           //add !Menu.isInfiniteMode
+            if (GameManager.instance.scores >= winCondition || Menu.songs[scene - 1])
             {
                 showWin();
-                if(scene == 1){
-                    Menu.song2Unlock = true;
-                    PlayerPrefs.SetInt("song2", Menu.song2Unlock ? 1 : 0);
-
-                }
-                else if (scene == 2){
-                    Menu.song3Unlock = true;
-                    PlayerPrefs.SetInt("song3", Menu.song3Unlock ? 1 : 0);
-
+                for (int i = 1; i < Menu.songsIndex; i++){
+                    if (i == scene){
+                        Menu.unlock(i);
+                    }
                 }
             }
 
@@ -74,8 +69,16 @@ public class FinishLine : MonoBehaviour
     {
         animator.SetBool("win", true);
         //winMenu.SetActive(true);
-        winText.text = "Next level unlocked!" + '\n' + '\n' + "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
+        if (Menu.songs[scene - 1])
+        {
+            winText.text = "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
             PlayerPrefs.GetInt("coins");
+        }
+        else
+        {
+            winText.text = "Next level unlocked!" + '\n' + '\n' + "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
+            PlayerPrefs.GetInt("coins");
+        }
         //sound effect
     }
 
@@ -83,8 +86,9 @@ public class FinishLine : MonoBehaviour
     {
         animator.SetBool("lose", true);
         //loseMenu.SetActive(true);
-        loseText.text = "Try again to unlock next level!" + '\n' + '\n' + "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
-           PlayerPrefs.GetInt("coins");
-        //sound effect
+
+            loseText.text = "Try again to unlock next level!" + '\n' + '\n' + "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
+            PlayerPrefs.GetInt("coins");
+           //sound effect
     }
 }

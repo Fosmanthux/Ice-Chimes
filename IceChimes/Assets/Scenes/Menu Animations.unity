@@ -871,9 +871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7fe9bf01b9e74d529fec7cede79ce5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  english: {fileID: 0}
-  svenska: {fileID: 0}
-  menuText: {fileID: 0}
 --- !u!1 &33033470
 GameObject:
   m_ObjectHideFlags: 0
@@ -9501,15 +9498,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13901745, g: 0.27002057, b: 0.41509432, a: 1}
+  m_Color: {r: 0.43916875, g: 0.5461334, b: 0.6698113, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 100
-    m_FontStyle: 0
+    m_FontSize: 85
+    m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100

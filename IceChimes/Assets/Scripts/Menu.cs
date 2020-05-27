@@ -21,7 +21,7 @@ public class Menu : MonoBehaviour
     public Button song2, song3;
 
     private int levelToLoad;
-    private int songsIndex = 3;
+    public static int songsIndex = 3;
 
     public Text coinText;
 
@@ -30,6 +30,7 @@ public class Menu : MonoBehaviour
     public GameObject particles;
     private Vector2 touch;
     public static bool song2Unlock, song3Unlock;
+    public static bool[] songs = {song2Unlock, song3Unlock}; 
     //public static bool isInfiniteMode = false;
 
     void Start()
@@ -38,31 +39,25 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1f;
         isbear = (PlayerPrefs.GetInt("isbear") != 0);
         isfox = (PlayerPrefs.GetInt("isfox") != 0);
-        song2Unlock = (PlayerPrefs.GetInt("song2") != 0);
-        song3Unlock = (PlayerPrefs.GetInt("song3") != 0);
-
-
+        songs[0] = (PlayerPrefs.GetInt("song2") != 0);
+        songs[1] = (PlayerPrefs.GetInt("song3") != 0);
     }
 
 
     void Update()
     {
-        if (song2Unlock){
+        if (songs[0]){
             song2.interactable = true;
         }
 
-        if (song3Unlock){
+        if (songs[1]){
             song3.interactable = true;
         }
-        //song2.interactable = true;
-        /*if (FinishLine.instance != null && FinishLine.instance.scene == 1 && FinishLine.unlocked)
-        {
-            song2.interactable = true;
-        }
-        else if (FinishLine.instance != null && FinishLine.instance.scene == 2 && FinishLine.unlocked)
-        {
-            song3.interactable = true;
-        }*/
+    }
+
+    public static void unlock(int scene){
+        songs[scene - 1] = true;
+        PlayerPrefs.SetInt("song"+ (scene+1), songs[scene-1] ? 1 : 0);
     }
 
     public void showShop()

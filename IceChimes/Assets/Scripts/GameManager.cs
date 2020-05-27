@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] Animator animator;
     public Text winScore;
+    public int scene;
 
     //public Text comboText;
 
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Hit");
         scores += noteScore;
         scoreText.text = "Score [ " + scores + " ]";
-        if (scores >= FinishLine.winCondition)
+        if (scores >= FinishLine.winCondition && !Menu.songs[scene-1])
         {
             String text = FinishLine.winCondition.ToString();
             winScore.text = "Score [ " + text + " ]";
