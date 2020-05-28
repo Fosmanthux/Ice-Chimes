@@ -11,6 +11,7 @@ public class SoundEffectsToggle : MonoBehaviour
 
     void Awake(){
         instance = this;
+        isOn = (PlayerPrefs.GetInt("isOn") != 0);
     }
 
     void Start()
@@ -32,9 +33,11 @@ public class SoundEffectsToggle : MonoBehaviour
     {
         if (soundEffects.isOn)
         {
-            isOn = true;
-            Debug.Log("o");
+            isOn = true;       
         }
-        else isOn = false; Debug.Log("off");
+        else {
+            isOn = false;
+        }
+        PlayerPrefs.SetInt("isOn", isOn ? 1 : 0);
     }
 }

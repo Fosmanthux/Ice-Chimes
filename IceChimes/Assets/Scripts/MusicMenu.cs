@@ -11,6 +11,9 @@ public class MusicMenu : MonoBehaviour
     public Toggle music;
     public static bool isMusic = true;
 
+    void Awake(){
+        isMusic = (PlayerPrefs.GetInt("isMusic") != 0);
+    }
 
 
     // Start is called before the first frame update
@@ -40,6 +43,6 @@ public class MusicMenu : MonoBehaviour
         else {
             theMusic.Play();
             isMusic = true; }
+        PlayerPrefs.SetInt("isMusic", isMusic ? 1 : 0);
     }
-
 }

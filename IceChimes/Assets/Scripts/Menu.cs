@@ -21,7 +21,7 @@ public class Menu : MonoBehaviour
     public Button song2, song3;
 
     private int levelToLoad;
-    private int songsIndex = 3;
+    public static int songsIndex = 3;
 
     public Text coinText;
 
@@ -29,31 +29,40 @@ public class Menu : MonoBehaviour
 
     public GameObject particles;
     private Vector2 touch;
+    public static bool song2Unlock, song3Unlock;
+    public static bool[] songs = {song2Unlock, song3Unlock}; 
     //public static bool isInfiniteMode = false;
 
     void Start()
     {
         rnd = new System.Random();
-        Time.timeScale = 1f;      
+        Time.timeScale = 1f;
+        isbear = (PlayerPrefs.GetInt("isbear") != 0);
+        isfox = (PlayerPrefs.GetInt("isfox") != 0);
+        songs[0] = (PlayerPrefs.GetInt("song2") != 0);
+        songs[1] = (PlayerPrefs.GetInt("song3") != 0);
     }
 
-   
+
     void Update()
     {
-        song2.interactable = true;
-        if (FinishLine.instance != null && FinishLine.instance.scene == 1 && FinishLine.instance.unlocked)
-        {
-            //song2.interactable = true;
+        if (songs[0]){
+            song2.interactable = true;
         }
-        else if (FinishLine.instance != null && FinishLine.instance.scene == 2 && FinishLine.instance.unlocked)
-        {
+
+        if (songs[1]){
             song3.interactable = true;
         }
     }
 
+    public static void unlock(int scene){
+        songs[scene - 1] = true;
+        PlayerPrefs.SetInt("song"+ (scene+1), songs[scene-1] ? 1 : 0);
+    }
+
     public void showShop()
-    {
-        coinText.text = "Crystals: " + GameManager.shopScore.ToString();
+    {    
+        coinText.text = "Crystals: " + PlayerPrefs.GetInt("coins");
     }
 
 
@@ -98,13 +107,18 @@ public class Menu : MonoBehaviour
     public void setFox()
     {
         isbear = false;
+        PlayerPrefs.SetInt("isbear", isbear ? 1 : 0);
         isfox = true;
+        PlayerPrefs.SetInt("isfox", isfox ? 1 : 0);
     }
 
-    public void setBear()
+        public void setBear()
     {
         isfox = false;
+        PlayerPrefs.SetInt("isfox", isfox ? 1 : 0);
         isbear = true;
+        PlayerPrefs.SetInt("isbear", isbear ? 1 : 0);
+
     }
 
     public void QuitGame()

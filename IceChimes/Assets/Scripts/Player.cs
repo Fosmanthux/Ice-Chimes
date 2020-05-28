@@ -6,25 +6,26 @@ public class Player : MonoBehaviour
 {
     [SerializeField] Animator animator;
     public ParticleSystem particles1, particles10;
+    
 
     private IEnumerator OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Note"))
         {
             animator.SetTrigger("+10");
-            GameManager.instance.NoteHit();
             yield return new WaitForSeconds(0.3f);
             particles10.Play();
+            GameManager.instance.NoteHit(); 
         } 
 
 
         if (other.gameObject.CompareTag("Coin"))
         {
             animator.SetTrigger("+1");
+            yield return new WaitForSeconds(0.7f);
+            particles1.Play();
             other.gameObject.SetActive(false);
             GameManager.instance.CoinGet();
-            yield return new WaitForSeconds(0.7f);
-           particles1.Play();
         }
 
         if (other.gameObject.CompareTag("Hazard"))
