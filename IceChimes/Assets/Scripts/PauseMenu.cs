@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] Animator animator;
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject pausebutton;
@@ -30,7 +31,9 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameManager.instance.theMusic.Play();
         pausebutton.SetActive(true);
-        pauseMenuUI.SetActive(false);
+        animator.SetTrigger("pauseOut");
+
+        // pauseMenuUI.SetActive(false);
         GameIsPaused = false;
     }
 
@@ -39,7 +42,9 @@ public class PauseMenu : MonoBehaviour
 
         GameManager.instance.theMusic.Pause();
         pausebutton.SetActive(false);
-        pauseMenuUI.SetActive(true);
+        animator.SetTrigger("pauseIn");
+
+        //  pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }

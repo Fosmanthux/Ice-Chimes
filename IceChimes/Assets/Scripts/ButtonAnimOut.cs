@@ -71,6 +71,7 @@ public class ButtonAnimOut : MonoBehaviour
                 animator.SetBool("unscale", true);
                 animator.SetBool("scale", false);
             }
+
             remove = false;
         }
        

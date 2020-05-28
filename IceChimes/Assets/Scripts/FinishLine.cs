@@ -11,17 +11,14 @@ public class FinishLine : MonoBehaviour
     public GameObject loseMenu;
     bool isEnd = false;
     public GameObject pausebutton;
-    public int winCondition = 0;
+    public static int winCondition = 120;
     public int scene;
-    public bool unlocked = false;
     public Text winText, loseText;
 
     [SerializeField] Animator animator;
     public ParticleSystem snow;
 
-
-
-    void Awake(){
+   void Awake(){
         instance = this;
     }
 
@@ -29,11 +26,15 @@ public class FinishLine : MonoBehaviour
     {
         if (isEnd)
         {
-            //add !Menu.isInfiniteMode
-            if (GameManager.instance.scores >= winCondition)
+           //add !Menu.isInfiniteMode
+            if (GameManager.instance.scores >= winCondition || Menu.songs[scene - 1])
             {
                 showWin();
-                unlocked = true;
+                for (int i = 1; i < Menu.songsIndex; i++){
+                    if (i == scene){
+                        Menu.unlock(i);
+                    }
+                }
             }
 
             else if (GameManager.instance.scores < winCondition)
@@ -68,16 +69,26 @@ public class FinishLine : MonoBehaviour
     {
         animator.SetBool("win", true);
         //winMenu.SetActive(true);
-        winText.text = "Next level unlocked!" + '\n' + '\n' + "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
-            GameManager.shopScore;
+        if (Menu.songs[scene - 1])
+        {
+            winText.text = "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
+            PlayerPrefs.GetInt("coins");
+        }
+        else
+        {
+            winText.text = "Next level unlocked!" + '\n' + '\n' + "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
+            PlayerPrefs.GetInt("coins");
+        }
+        //sound effect
     }
 
     void showLose()
     {
         animator.SetBool("lose", true);
         //loseMenu.SetActive(true);
-        loseText.text = "Try again to unlock next level!" + '\n' + '\n' + "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
-           GameManager.shopScore;
+
+            loseText.text = "Try again to unlock next level!" + '\n' + '\n' + "Score: " + GameManager.instance.scores + '\n' + "Crystals: " +
+            PlayerPrefs.GetInt("coins");
+           //sound effect
     }
-      
 }
