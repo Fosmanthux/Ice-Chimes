@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,22 +25,24 @@ public class GameManager : MonoBehaviour
     public int coinValue;
 
     public static int finalScore;
-    public static int shopScore = 0;
-
     /* public int combos;
     public int comboTracker;
     public int[] comboThresholds; */
 
     public Text scoreText;
     public Text coinText;
-    
+
+    [SerializeField] Animator animator;
+    public Text winScore;
+    public int scene;
+
     //public Text comboText;
 
     void Start()
     {
+        Time.timeScale = 1f;
         instance = this;
-
-        scoreText.text = "[ 0 ]";
+        scoreText.text = "Score [ 0 ]";
     }
 
     // Update is called once per frame
@@ -65,27 +68,32 @@ public class GameManager : MonoBehaviour
 
     public void NoteHit()
     {
-        Debug.Log("Hit");
-
+        //Debug.Log("Hit");
         scores += noteScore;
-        scoreText.text = "[ " + scores + " ]";
+        scoreText.text = "Score [ " + scores + " ]";
+        if (scores >= FinishLine.winCondition && !Menu.songs[scene-1])
+        {
+            String text = FinishLine.winCondition.ToString();
+            winScore.text = "Score [ " + text + " ]";
+            animator.SetTrigger("complete");
+            //Sound effect
+        }
     }
 
     public void NoteMissed()
     {
-        Debug.Log("Miss");
-
+        //Debug.Log("Miss");
         scores -= noteScore / 2;
-        scoreText.text = "[ " + scores + " ]";
+        scoreText.text = "Score [ " + scores + " ]";
     }
 
     public void CoinGet()
     {
-        Debug.Log("Coin");
-
+        //Debug.Log("Coin");
         coins += coinValue;
-        coinText.text = "Coins: " + coins;
-        shopScore++;
+        coinText.text = "Crystals " + coins;
+        int previousCoins = PlayerPrefs.GetInt("coins");
+        previousCoins ++;
+        PlayerPrefs.SetInt("coins", previousCoins);
     }
-
 }

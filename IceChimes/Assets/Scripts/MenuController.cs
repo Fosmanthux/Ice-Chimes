@@ -5,14 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    public int scene;
+
     public void StartMenu()
     {
         SceneManager.LoadScene(0);
     }
 
-    public void Level1()
+    public void nextLevel()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(scene +1);
+    }
+
+    public void tryAgain(){
+        SceneManager.LoadScene(scene);
     }
 
     public void Pause()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BeatScroller2 : MonoBehaviour
 {
+   // public static BeatScroller2 instance;
     public float bpm;
     public bool hasStarted;
     List<GameObject> allNotes = new List<GameObject>();
@@ -41,11 +42,11 @@ public class BeatScroller2 : MonoBehaviour
         63.5f, 64f, 65f, 65.5f, 66f, 66.5f, 67.5f, 69.5f, 72f };
 
 
+   
     // Start is called before the first frame update
     void Start()
     {
         bpm = bpm / 60f;
-        
     }
 
     // Update is called once per frame
