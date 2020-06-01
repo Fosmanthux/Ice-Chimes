@@ -26,7 +26,7 @@ public class FinishLine : MonoBehaviour
     {
         if (isEnd)
         {
-           //add !Menu.isInfiniteMode
+            //add !Menu.isInfiniteMode
             if (GameManager.instance.scores >= winCondition || Menu.songs[scene - 1])
             {
                 showWin();
@@ -49,6 +49,7 @@ public class FinishLine : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Time.timeScale = 0f;
             snow.Play();
             isEnd = true;
             other.gameObject.SetActive(false);
