@@ -5535,6 +5535,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910718391}
   m_CullTransparentMesh: 0
+--- !u!1 &916327373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 916327375}
+  - component: {fileID: 916327374}
+  m_Layer: 0
+  m_Name: 12472954_Burning_Out_Original_Mix_short
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &916327374
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916327373}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dcadc66a42e92864999dc3340dffe02d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &916327375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916327373}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &921830078
 GameObject:
   m_ObjectHideFlags: 0
@@ -6488,7 +6615,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17638
+  m_Name: pb_Mesh33124
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7188,16 +7315,9 @@ MonoBehaviour:
   Up_Arrow: {fileID: 409755050}
   Down_Arrow: {fileID: 409755050}
   Right_Arrow: {fileID: 409755050}
-  notesTest:
-  - 2.1
-  - 3.1
-  - 4.2
-  - 5.2
-  - 5.6
+  songChoice: 2
   i: 0
-  nextNoteTest: 010000000200000003000000040000000200000001000000
   spawnNote: 0
-  beatMap1notes: 01000000020000000300000002000000010000000200000002000000030000000300000001000000020000000300000001000000010000000200000003000000020000000100000002000000
   beatmap1:
   - 10.4
   - 11.6
@@ -7284,6 +7404,7 @@ MonoBehaviour:
   - 120.4
   - 122.4
   - 126
+  beatMap1notes: 01000000020000000300000002000000010000000200000002000000030000000300000001000000020000000300000001000000010000000200000003000000020000000100000002000000
   beatmap2:
   - 3
   - 7
@@ -7354,6 +7475,7 @@ MonoBehaviour:
   - 67.5
   - 69.5
   - 72
+  beatMap2notes: 0100000002000000030000000200000002000000010000000300000001000000020000000100000001000000030000000300000002000000030000000100000003000000020000000100000001000000020000000300000002000000030000000100000002000000030000000100000003000000020000000100000003000000020000000300000001000000030000000200000001000000020000000200000001000000030000000300000001000000020000000100000002000000030000000200000003000000020000000300000001000000
 --- !u!4 &1365983012
 Transform:
   m_ObjectHideFlags: 0
@@ -7819,6 +7941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theMusic: {fileID: 636652697}
+  theMusic2: {fileID: 916327374}
   startPlaying: 0
   theBS: {fileID: 1365983011}
   ReadyToPlay: {fileID: 1816437674}
@@ -7831,6 +7954,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   winScore: {fileID: 0}
   scene: 0
+  selectedSong: 0
 --- !u!4 &1454966374
 Transform:
   m_ObjectHideFlags: 0

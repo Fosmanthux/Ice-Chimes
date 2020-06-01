@@ -8,8 +8,6 @@ public class BeatScroller2 : MonoBehaviour
     public float bpm;
     public bool hasStarted;
     List<GameObject> allNotes = new List<GameObject>();
-    List<float> beatmaps = new List<float>();
-    List<int> beatmapNotes = new List<int>();
 
     public GameObject Left_Arrow;
     public GameObject Up_Arrow;
@@ -53,7 +51,7 @@ public class BeatScroller2 : MonoBehaviour
         if (!hasStarted)
         {
 
-            //  next_spawn_time = Time.time + beatmap1[0];
+            //next_spawn_time = Time.time + beatmap1[0];
         }
         else
         {
@@ -72,17 +70,9 @@ public class BeatScroller2 : MonoBehaviour
 
                         i++;
                         //increment next_spawn_time
-                        /*  if (i > 0) {
-                              next_spawn_time += beatmap1[i];
-                          }
+                        UnityEngine.Debug.Log(spawnNote.ToString() + ", x, " + i);
 
-                          spawnArrow(beatMap1notes[i], i);
-
-                          i++;
-
-                          if (i == 12) { i--; };
-                         // UnityEngine.Debug.Log(spawnNote.ToString() + ", x, " + i);
-                          */
+                        if (i == 12) { i--; };
                     }
                     break;
                 case 2:
@@ -94,6 +84,7 @@ public class BeatScroller2 : MonoBehaviour
                         }
                         spawnArrow(beatMap2notes[i], i);
                         i++;
+                        if (i == 12) { i--; };
                     }
                     break;
                 default: { } break;
@@ -133,6 +124,10 @@ public class BeatScroller2 : MonoBehaviour
                  UnityEngine.Debug.Log("Something is wrong");
                  break;
          }
+    }
+    public int getSelectedSong()
+    {
+        return songChoice;
     }
 
 }

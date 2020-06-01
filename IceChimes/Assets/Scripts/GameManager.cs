@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public AudioSource theMusic;
-
+    public AudioSource theMusic2;
     public bool startPlaying;
 
     public BeatScroller2 theBS;
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Animator animator;
     public Text winScore;
     public int scene;
-
+    public int selectedSong;
     //public Text comboText;
 
     void Start()
@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         instance = this;
         scoreText.text = "Score [ 0 ]";
+        selectedSong = theBS.getSelectedSong();
     }
 
     // Update is called once per frame
@@ -52,11 +53,22 @@ public class GameManager : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
+                switch (selectedSong)
+                {
+                    case 0: theMusic.Play();
+                        UnityEngine.Debug.Log(selectedSong.ToString());
+                        break;
+                    case 1: theMusic.Play();
+                        break;
+                    case 2: theMusic2.Play();
+                        break;
+                    default: theMusic.Play();
+                        break;
+                }
                 ReadyToPlay.SetActive(false);
                 startPlaying = true;
                 theBS.hasStarted = true;
 
-                theMusic.Play();
             }
         }
     }
