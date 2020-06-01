@@ -51,6 +51,18 @@ public class BeatScroller2 : MonoBehaviour
         3, 3, 2, 3, 1, 3, 2, 1, 1, 2, 3, 2, 3, 1, 2, 3, 1, 3, 2, 1, 3, 2, 3, 1, 3, 2, 1, 2, 2, 1, 3, 3, 1, 2, 1, 2, 3, 2, 3, 2, 3, 1 };
     public int[] beatMap2notesExtra = { 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 10,
         0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+    //Beatmap 3 - Mist 1.29 - 80 notes
+    public float[] beatmap3 = {8.5f, 9.5f, 10f, 11f, 12f, 12.5f, 13f, 15f, 16f, 17f, 18.5f, 20f, 20.5f, 21.5f, 22f, 23.5f, 24f, 25f, 25.5f, 27.5f, 28f, 29f, 30f, 31.5f, 32f,
+    32.5f, 33.5f, 35f, 36f, 37f, 39f, 39.5f, 40f, 41.5f, 43f, 44f, 44.5f, 46.5f, 47f, 48.5f, 49f, 50.5f, 51.5f, 53f, 54f, 54.5f, 55.5f, 56f, 57f, 58f, 58.5f, 59.5f, 60f,
+    60.5f, 62f, 62.5f, 63f, 64f, 64.5f, 65.5f, 66.5f, 67f, 67.5f, 68.5f, 69.5f, 70f, 71f, 72f, 72.5f, 73.5f, 74f, 74.5f, 75.5f, 76f, 77.5f, 78f, 79f, 80f, 82f };
+    public int[] beatMap3notes = { 1, 3, 2, 1, 2, 3, 1, 3, 2, 1, 3, 2, 3, 3, 3, 2, 2, 1, 1, 3, 1, 2, 3, 2, 3, 3, 2, 2, 3, 1, 3, 3, 1, 3, 3, 3, 1, 3, 2, 3, 3, 2, 2, 1, 2, 2, 1, 1, 1, 3, 3, 2, 1, 3, 1, 2,
+        1, 2, 1, 3, 2, 3, 3, 2, 1, 2, 1, 1, 2, 3, 1, 2, 2, 3, 2, 2, 3, 1, 1 };
+    public int[] beatMap3notesExtra = { 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 3, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+
+
     public float timeOffset = 0;
     // Start is called before the first frame update
     void Start()
@@ -94,6 +106,19 @@ public class BeatScroller2 : MonoBehaviour
                         spawnArrow(beatMap2notes[i], i, beatMap2notesExtra[i]);
                         
                         if (beatMap2notes.Length == i)
+                        {
+                            i--;
+                        }
+                        i++;
+                    }
+                    break;
+                case 3:
+                    if (Time.time - timeOffset > next_spawn_time)
+                    {
+                        next_spawn_time = beatmap3[i];
+                        spawnArrow(beatMap3notes[i], i, beatMap3notesExtra[i]);
+
+                        if (beatMap3notes.Length == i)
                         {
                             i--;
                         }
