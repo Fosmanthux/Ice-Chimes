@@ -23,8 +23,6 @@ public class ButtonAnim : MonoBehaviour
         show = true;       
     }
 
-
-
     void Update()
     {
         if (show)
