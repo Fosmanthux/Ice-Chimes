@@ -8,8 +8,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public AudioSource theMusic;
-    public AudioSource theMusic2;
+    public AudioSource theMusic;  // Blurred Signs
+    public AudioSource theMusic2; // Burning out
+    public AudioSource theMusic3;  // Mist
     public bool startPlaying;
 
     public BeatScroller2 theBS;
@@ -61,6 +62,8 @@ public class GameManager : MonoBehaviour
                     case 1: theMusic.Play();
                         break;
                     case 2: theMusic2.Play();
+                        break;
+                    case 3: theMusic3.Play();
                         break;
                     default: theMusic.Play();
                         break;
