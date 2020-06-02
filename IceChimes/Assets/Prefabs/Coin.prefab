@@ -13,13 +13,14 @@ GameObject:
   - component: {fileID: 292378085258790092}
   - component: {fileID: 292378085258790093}
   - component: {fileID: 292378085258790094}
+  - component: {fileID: 6110954539762062952}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &292378085258790095
 Transform:
   m_ObjectHideFlags: 0
@@ -28,12 +29,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292378085258790088}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0.5, z: 20.8}
+  m_LocalPosition: {x: -0.008799106, y: 0.5, z: 20.85996}
   m_LocalScale: {x: 0.105, y: 0.105, z: 0.105}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: -219.60678, z: 180.00002}
 --- !u!33 &292378085258790083
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5282,3 +5283,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!111 &6110954539762062952
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292378085258790088}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 886fcc1df94a9ac48b0cca655291b29d, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 886fcc1df94a9ac48b0cca655291b29d, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
