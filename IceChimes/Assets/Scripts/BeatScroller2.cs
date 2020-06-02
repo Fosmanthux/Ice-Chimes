@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BeatScroller2 : MonoBehaviour
@@ -10,16 +11,11 @@ public class BeatScroller2 : MonoBehaviour
     public bool hasStarted=false;
     List<GameObject> allNotes = new List<GameObject>();
     List<GameObject> allNotesExtra = new List<GameObject>();
+    List<GameObject> allCones = new List<GameObject>();
 
-    public GameObject Left;
-    public GameObject Middle;
-    public GameObject Right;
-    public GameObject Left_coin;
-    public GameObject Middle_coin;
-    public GameObject Right_coin;
-    public GameObject Left_cone;
-    public GameObject Middle_cone;
-    public GameObject Right_cone;
+    public GameObject Note;
+    public GameObject Coin;
+    public GameObject Cone;
     public GameObject Finish_line;
 
     public int songChoice;
@@ -28,7 +24,8 @@ public class BeatScroller2 : MonoBehaviour
     //Test Array GameObjects
 
     //Test array
-    public int i = 0;
+    public int coneIndex = 0;
+    public int index = 0;
     public int spawnNote = 0;
 
 
@@ -40,7 +37,7 @@ public class BeatScroller2 : MonoBehaviour
         110.0f, 112.0f, 114.0f, 117.2f, 118.0f, 120.4f, 122.4f, 126.0f };
     public int[] beatMap1notes = { 1, 2, 3, 2, 2, 1, 3, 1, 2, 1, 1, 3, 3, 2, 3, 1, 3, 2, 1, 1, 2, 3, 2, 3, 1, 2, 3, 1, 3, 2, 1, 3, 2, 3, 1, 3, 2, 1, 2, 2, 1, 3, 3, 1, 2, 1, 
         2, 3, 2, 3, 2, 3, 1, 1, 2, 3, 2, 2, 1, 3, 1, 2, 1, 1, 3, 3, 2, 3, 1, 3, 2, 1, 1, 2, 3, 2, 3, 1, 2, 3, 1, 3, 2, 1, 3, 2, 3, 1, 3, 2, 1, 2, 2, 1, 3, 3, 1, 2, 1, 2, 3, 2, 3, 2, 3, 1 };
-    public int[] beatMap1notesExtra = { 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    public int[] beatMap1notesExtra = { 7, 5, 0, 0, 8, 0, 12, 0, 0, 11, 4, 0, 9, 0, 0, 0, 0, 14, 0, 0, 0, 6, 0, 0, 0, 12, 0, 0, 8, 0, 9, 7, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     //Beatmap 2 - Burning out 1.13
     public float[] beatmap2 = { 3f, 7f, 12f, 15f, 16.5f, 20.5f, 21.5f, 22f, 23.5f, 24.5f, 26f, 27f, 28.5f, 29.5f, 30.5f, 
@@ -49,7 +46,7 @@ public class BeatScroller2 : MonoBehaviour
         63.5f, 64f, 65f, 65.5f, 66f, 66.5f, 67.5f, 69.5f, 72f };
     public int[] beatMap2notes = { 1, 2, 3, 2, 2, 1, 3, 1, 2, 1, 1, 3, 3, 2, 3, 1, 3, 2, 1, 1, 2, 3, 2, 3, 1, 2, 3, 1, 3, 2, 1, 3, 2, 3, 1, 3, 2, 1, 2, 2, 1, 3, 3, 1, 2, 1, 2, 3, 2, 3, 2, 3, 1, 1, 2, 3, 2, 2, 1, 3, 1, 2, 1, 1, 
         3, 3, 2, 3, 1, 3, 2, 1, 1, 2, 3, 2, 3, 1, 2, 3, 1, 3, 2, 1, 3, 2, 3, 1, 3, 2, 1, 2, 2, 1, 3, 3, 1, 2, 1, 2, 3, 2, 3, 2, 3, 1 };
-    public int[] beatMap2notesExtra = { 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 10,
+    public int[] beatMap2notesExtra = { 8, 5, 0, 11, 0, 14, 6, 12, 0, 0, 4, 0, 0, 11, 0, 0, 0, 7, 0, 0, 7, 6, 0, 0, 12, 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 7,
         0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
     //Beatmap 3 - Mist 1.29 - 80 notes
@@ -58,7 +55,7 @@ public class BeatScroller2 : MonoBehaviour
     60.5f, 62f, 62.5f, 63f, 64f, 64.5f, 65.5f, 66.5f, 67f, 67.5f, 68.5f, 69.5f, 70f, 71f, 72f, 72.5f, 73.5f, 74f, 74.5f, 75.5f, 76f, 77.5f, 78f, 79f, 80f, 82f };
     public int[] beatMap3notes = { 1, 3, 2, 1, 2, 3, 1, 3, 2, 1, 3, 2, 3, 3, 3, 2, 2, 1, 1, 3, 1, 2, 3, 2, 3, 3, 2, 2, 3, 1, 3, 3, 1, 3, 3, 3, 1, 3, 2, 3, 3, 2, 2, 1, 2, 2, 1, 1, 1, 3, 3, 2, 1, 3, 1, 2,
         1, 2, 1, 3, 2, 3, 3, 2, 1, 2, 1, 1, 2, 3, 1, 2, 2, 3, 2, 2, 3, 1, 1 };
-    public int[] beatMap3notesExtra = { 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 3, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 0, 0,
+    public int[] beatMap3notesExtra = { 7, 0, 13, 11, 5, 0, 0, 9, 0, 0, 0, 14, 0, 8, 0, 12, 0, 11, 0, 6, 4, 5, 0, 0, 12, 0, 0, 0, 8, 0, 0, 12, 11, 0, 6, 0, 0, 13, 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 6, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 
@@ -74,7 +71,7 @@ public class BeatScroller2 : MonoBehaviour
     void Update()
     {
         UnityEngine.Debug.Log("Next spawn time: "+next_spawn_time);
-        UnityEngine.Debug.Log("i is: " + i);
+        UnityEngine.Debug.Log("i is: " + index);
         if (!hasStarted)
         {
             timeOffset = Time.time;
@@ -88,41 +85,41 @@ public class BeatScroller2 : MonoBehaviour
                 case 1:
                     if ((Time.time-timeOffset) > next_spawn_time)
                     {
-                        next_spawn_time = beatmap1[i];
-                        spawnArrow(beatMap1notes[i], i, beatMap1notesExtra[i]);
-                        if (beatMap1notes.Length == i)
+                        next_spawn_time = beatmap1[index];
+                        spawnArrow(beatMap1notes[index], index, beatMap1notesExtra[index]);
+
+                        index++;
+                        if (beatMap1notes.Length == index)
                         {
-                            i--;
+                            index--;
                         }
-                        i++;
                         //increment next_spawn_time
-                        
+
                     }
                     break;
                 case 2:
                     if (Time.time-timeOffset > next_spawn_time)
                     {
-                        next_spawn_time = beatmap2[i];
-                        spawnArrow(beatMap2notes[i], i, beatMap2notesExtra[i]);
-                        
-                        if (beatMap2notes.Length == i)
+                        next_spawn_time = beatmap2[index];
+                        spawnArrow(beatMap2notes[index], index, beatMap2notesExtra[index]);
+                        if (beatMap2notes.Length == index)
                         {
-                            i--;
+                            index--;
                         }
-                        i++;
+                        index++;
                     }
                     break;
                 case 3:
                     if (Time.time - timeOffset > next_spawn_time)
                     {
-                        next_spawn_time = beatmap3[i];
-                        spawnArrow(beatMap3notes[i], i, beatMap3notesExtra[i]);
-
-                        if (beatMap3notes.Length == i)
+                        next_spawn_time = beatmap3[index];
+                        spawnArrow(beatMap3notes[index], index, beatMap3notesExtra[index]);
+                        
+                        index++;
+                        if (beatMap3notes.Length == index)
                         {
-                            i--;
+                            index--;
                         }
-                        i++;
                     }
                     break;
                 default: { 
@@ -130,91 +127,170 @@ public class BeatScroller2 : MonoBehaviour
                     break;
 
             }
-            for (int q = 0; q < allNotes.Count; q++)
+            //Moves all of the notes
+            for (int q = 0; q < allNotes.Count(); q++)
             {
-
+                UnityEngine.Debug.Log("ok maybe here " + allNotesExtra.Count() + "Or here: " + allNotes.Count());
                 GameObject y = allNotes[q];
                 y.transform.position -= new Vector3(0f, 0f, bpm * Time.deltaTime);
+                GameObject z = allNotesExtra[q];
+                z.transform.position -= new Vector3(0f, 0f, bpm * Time.deltaTime);
             }
-            for (int q = 0; q < allNotes.Count; q++)
-            {
-
-                GameObject y = allNotesExtra[q];
+            //Moves all of the Cones
+            if (allCones.Count() != 0) { 
+              for(int q = 0; q < allCones.Count(); q++)
+              {
+                GameObject y = allCones[q];
                 y.transform.position -= new Vector3(0f, 0f, bpm * Time.deltaTime);
+              }
             }
         }
     }
     public void spawnArrow(int note, int position, int extra)
     {
         //Decides what type of gameobject to spawn
-        if (extra != 0)
+        // buggTesting   UnityEngine.Debug.Log("2222ok maybe here " + allNotesExtra.Count() + "Or here: " + allNotes.Count());
+        // buggTesting  UnityEngine.Debug.Log("22222xxxxx note: "+note+ " position: "+ position + " extra: "+ extra);
+        if (extra!=0)
         {
             note = extra;
         }
         else
         {
-            allNotesExtra.Add(GameObject.Instantiate(Left, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+            allNotesExtra.Add(GameObject.Instantiate(Note, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
             allNotesExtra[position].SetActive(false);
-        }
+        }    
 
         switch (note)
          {
             
              case 1:
-                 allNotes.Add(GameObject.Instantiate(Left, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                 allNotes.Add(GameObject.Instantiate(Note, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
                  allNotes[position].SetActive(true);
                 break;
              case 2:
-                allNotes.Add(GameObject.Instantiate(Middle, new Vector3(0f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotes.Add(GameObject.Instantiate(Note, new Vector3(0f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
                 allNotes[position].SetActive(true);
                 break;
              case 3:
-                allNotes.Add(GameObject.Instantiate(Right, new Vector3(1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotes.Add(GameObject.Instantiate(Note, new Vector3(1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
                 allNotes[position].SetActive(true);
                 break;
 
             case 4:
-                allNotes.Add(GameObject.Instantiate(Left, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotes.Add(GameObject.Instantiate(Note, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
                 allNotes[position].SetActive(true);
-                allNotesExtra.Add(GameObject.Instantiate(Left_coin, new Vector3(-1f, 1, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotesExtra.Add(GameObject.Instantiate(Coin, new Vector3(-1f, 1, 12), Quaternion.Euler(0f, 0f, 0f)));
                 allNotesExtra[position].SetActive(true);
                 break;
             case 5:
-                allNotes.Add(GameObject.Instantiate(Middle, new Vector3(0f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotes.Add(GameObject.Instantiate(Note, new Vector3(0f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
                 allNotes[position].SetActive(true);
-                allNotesExtra.Add(GameObject.Instantiate(Middle_coin, new Vector3(0f, 1, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotesExtra.Add(GameObject.Instantiate(Coin, new Vector3(0f, 1, 12), Quaternion.Euler(0f, 0f, 0f)));
                 allNotesExtra[position].SetActive(true);
                 break;
             case 6:
-                allNotes.Add(GameObject.Instantiate(Right, new Vector3(1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotes.Add(GameObject.Instantiate(Note, new Vector3(1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
                 allNotes[position].SetActive(true);
-                allNotesExtra.Add(GameObject.Instantiate(Right_coin, new Vector3(1f, 1, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotesExtra.Add(GameObject.Instantiate(Coin, new Vector3(1f, 1, 12), Quaternion.Euler(0f, 0f, 0f)));
                 allNotesExtra[position].SetActive(true);
                 break;
 
-            /* case 7:
-                 allNotesExtra.Add(GameObject.Instantiate(Left_cone, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
-                 allNotesExtra[position].SetActive(true);
+                //Cones. Yes this will be a long method. 7-9 = One cone next to a note on the left. 11-13 Two cones next to a note. 14 Single cone on the right instead of left (case8)
+            case 7:
+                 allNotes.Add(GameObject.Instantiate(Note, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                 allNotes[position].SetActive(true);
+                 allNotesExtra.Add(GameObject.Instantiate(Note, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                 allNotesExtra[position].SetActive(false);
+
+                 allCones.Add(GameObject.Instantiate(Cone, new Vector3(0.37f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                 allCones[coneIndex].SetActive(true);
+                 coneIndex++;
                  break;
              case 8:
-                 allNotesExtra.Add(GameObject.Instantiate(Middle_cone, new Vector3(0f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
-                 allNotesExtra[position].SetActive(true);
+                 allNotes.Add(GameObject.Instantiate(Note, new Vector3(0f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                 allNotes[position].SetActive(true);
+                 allNotesExtra.Add(GameObject.Instantiate(Note, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                 allNotesExtra[position].SetActive(false);
+
+                 allCones.Add(GameObject.Instantiate(Cone, new Vector3(-1.1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                 allCones[coneIndex].SetActive(true);
+                 coneIndex++;
                  break;
              case 9:
-                 allNotesExtra.Add(GameObject.Instantiate(Right_cone, new Vector3(1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
-                 allNotesExtra[position].SetActive(true);
-                 break;*/
+                 allNotes.Add(GameObject.Instantiate(Note, new Vector3(1.2f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                 allNotes[position].SetActive(true);
+                 allNotesExtra.Add(GameObject.Instantiate(Note, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                 allNotesExtra[position].SetActive(false);
+
+                 allCones.Add(GameObject.Instantiate(Cone, new Vector3(0.37f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                 allCones[coneIndex].SetActive(true);
+                 coneIndex++;
+                 break;
+                //Placeholder for instantiated finishline. Not in use.
             case 10:
-                allNotes.Add(GameObject.Instantiate(Right, new Vector3(1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotes.Add(GameObject.Instantiate(Note, new Vector3(1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
                 allNotes[position].SetActive(false);
                 allNotesExtra.Add(GameObject.Instantiate(Finish_line, new Vector3(1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
                 allNotesExtra[position].SetActive(true);
-                break; 
+                break;
+                // Two cones
+            case 11:
+                allNotes.Add(GameObject.Instantiate(Note, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotes[position].SetActive(true);
+                allNotesExtra.Add(GameObject.Instantiate(Note, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotesExtra[position].SetActive(false);
 
-             default:
+                allCones.Add(GameObject.Instantiate(Cone, new Vector3(0.37f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allCones[coneIndex].SetActive(true);
+                coneIndex++;
+                allCones.Add(GameObject.Instantiate(Cone, new Vector3(1.37f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allCones[coneIndex].SetActive(true);
+                coneIndex++;
+                break;
+            case 12:
+                allNotes.Add(GameObject.Instantiate(Note, new Vector3(0f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotes[position].SetActive(true);
+                allNotesExtra.Add(GameObject.Instantiate(Note, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotesExtra[position].SetActive(false);
+
+                allCones.Add(GameObject.Instantiate(Cone, new Vector3(-1.1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allCones[coneIndex].SetActive(true);
+                coneIndex++;
+                allCones.Add(GameObject.Instantiate(Cone, new Vector3(1.37f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allCones[coneIndex].SetActive(true);
+                coneIndex++;
+                break;
+            case 13:
+                allNotes.Add(GameObject.Instantiate(Note, new Vector3(1.1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotes[position].SetActive(true);
+                allNotesExtra.Add(GameObject.Instantiate(Note, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotesExtra[position].SetActive(false);
+
+                allCones.Add(GameObject.Instantiate(Cone, new Vector3(0.37f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allCones[coneIndex].SetActive(true);
+                coneIndex++;
+                allCones.Add(GameObject.Instantiate(Cone, new Vector3(-1.1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allCones[coneIndex].SetActive(true);
+                coneIndex++;
+                break;
+                //One Cone right side for middle
+            case 14:
+                allNotes.Add(GameObject.Instantiate(Note, new Vector3(0f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotes[position].SetActive(true);
+                allNotesExtra.Add(GameObject.Instantiate(Note, new Vector3(-1f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allNotesExtra[position].SetActive(false);
+
+                allCones.Add(GameObject.Instantiate(Cone, new Vector3(1.37f, 0, 12), Quaternion.Euler(0f, 0f, 0f)));
+                allCones[coneIndex].SetActive(true);
+                coneIndex++;
+                break;
+
+            default:
                 UnityEngine.Debug.Log("Something is wrong");
                  break;
          }
+     //buggTesting   UnityEngine.Debug.Log("33333ok maybe here " + allNotesExtra.Count() + "Or here: " + allNotes.Count());
     }
     public int getSelectedSong()
     {
