@@ -5,7 +5,7 @@ using UnityEngine;
 public class BeatsScroller : MonoBehaviour
 {
     public float bpm;
-
+    
     public bool hasStarted;
     // Start is called before the first frame update
     void Start()
@@ -18,10 +18,10 @@ public class BeatsScroller : MonoBehaviour
     {
         if (!hasStarted)
         {
-            /* if (Input.anyKeyDown)
+            if (Input.anyKeyDown)
             {
                 hasStarted = true;
-            } */
+            }
         } else
         {
             transform.position -= new Vector3(0f, 0f, bpm * Time.deltaTime);
