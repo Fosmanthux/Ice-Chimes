@@ -19,7 +19,7 @@ public class Menu : MonoBehaviour
     public GameObject infiniteMode;*/
 
     public Button play;
-    public Button song2, song3;
+    public Button song2, song3, song4;
 
     private int levelToLoad;
     public static int songsIndex = 3;
@@ -30,8 +30,8 @@ public class Menu : MonoBehaviour
 
     public GameObject particles;
     private Vector2 touch;
-    public static bool song2Unlock, song3Unlock;
-    public static bool[] songs = {song2Unlock, song3Unlock}; 
+    public static bool song2Unlock, song3Unlock, song4Unlock;
+    public static bool[] songs = {song2Unlock, song3Unlock, song4Unlock}; 
     //public static bool isInfiniteMode = false;
 
     void Start()
@@ -43,6 +43,7 @@ public class Menu : MonoBehaviour
         isfox = (PlayerPrefs.GetInt("isfox") != 0);
         songs[0] = (PlayerPrefs.GetInt("song2") != 0);
         songs[1] = (PlayerPrefs.GetInt("song3") != 0);
+        songs[2] = (PlayerPrefs.GetInt("song4") != 0);
     }
 
 
@@ -54,6 +55,10 @@ public class Menu : MonoBehaviour
 
         if (songs[1]){
             song3.interactable = true;
+        }
+        if (songs[2])
+        {
+            song4.interactable = true;
         }
     }
 
