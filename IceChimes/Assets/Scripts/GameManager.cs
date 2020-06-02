@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public AudioSource theMusic2; // Burning out
     public AudioSource theMusic3;  // Mist
     public bool startPlaying;
+    public bool musicStart;
 
     public BeatScroller2 theBS;
 
@@ -54,6 +55,13 @@ public class GameManager : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
+                ReadyToPlay.SetActive(false);
+                startPlaying = true;
+                theBS.hasStarted = true;
+            }
+
+            if (musicStart) 
+            { 
                 switch (selectedSong)
                 {
                     case 0: theMusic.Play();
@@ -68,10 +76,6 @@ public class GameManager : MonoBehaviour
                     default: theMusic.Play();
                         break;
                 }
-                ReadyToPlay.SetActive(false);
-                startPlaying = true;
-                theBS.hasStarted = true;
-
             }
         }
     }
