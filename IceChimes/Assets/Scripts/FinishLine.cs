@@ -11,7 +11,7 @@ public class FinishLine : MonoBehaviour
     public GameObject loseMenu;
     bool isEnd = false;
     public GameObject pausebutton;
-    public static int winCondition = 120;
+    public int winCondition;
     public int scene;
     public Text winText, loseText;
 

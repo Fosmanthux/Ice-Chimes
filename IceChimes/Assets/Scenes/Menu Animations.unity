@@ -567,7 +567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: -297}
+  m_AnchoredPosition: {x: -0.00012207031, y: -284}
   m_SizeDelta: {x: 493.34344, y: 465.3064}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &30814517
@@ -2015,7 +2015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.0998, y: 167}
+  m_AnchoredPosition: {x: -0.00012207031, y: 112}
   m_SizeDelta: {x: 402.2329, y: 422.9978}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278931117
@@ -4177,6 +4177,7 @@ GameObject:
   - component: {fileID: 1009196254}
   - component: {fileID: 1009196253}
   - component: {fileID: 1009196257}
+  - component: {fileID: 1009196258}
   - component: {fileID: 1009196256}
   m_Layer: 5
   m_Name: Song2
@@ -4227,8 +4228,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 0.8160377, b: 0.927146, a: 0.78431374}
-    m_PressedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 0.78431374}
-    m_SelectedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 0.78431374}
+    m_PressedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 1}
+    m_SelectedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4248,8 +4249,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2044649921}
-        m_MethodName: setLevel2
+      - m_Target: {fileID: 1009196258}
+        m_MethodName: setLvl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4404,6 +4405,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theSound: {fileID: 872374387}
+--- !u!114 &1009196258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009196251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e7056a0e15647db8faf58cdbfa4cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songNmb: 2
+  menu: {fileID: 0}
 --- !u!1 &1081069658
 GameObject:
   m_ObjectHideFlags: 0
@@ -10291,8 +10306,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 0.8160377, b: 0.927146, a: 0.78431374}
-    m_PressedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 0.78431374}
-    m_SelectedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 0.78431374}
+    m_PressedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 1}
+    m_SelectedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -10496,6 +10511,7 @@ GameObject:
   - component: {fileID: 1419792447}
   - component: {fileID: 1419792446}
   - component: {fileID: 1419792450}
+  - component: {fileID: 1419792451}
   - component: {fileID: 1419792449}
   m_Layer: 5
   m_Name: Song1
@@ -10546,8 +10562,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 0.8160377, b: 0.927146, a: 0.78431374}
-    m_PressedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 0.78431374}
-    m_SelectedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 0.78431374}
+    m_PressedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 1}
+    m_SelectedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -10567,8 +10583,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2044649921}
-        m_MethodName: setLevel1
+      - m_Target: {fileID: 1419792451}
+        m_MethodName: setLvl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10723,6 +10739,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theSound: {fileID: 872374387}
+--- !u!114 &1419792451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419792444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e7056a0e15647db8faf58cdbfa4cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songNmb: 1
+  menu: {fileID: 0}
 --- !u!1 &1466947752
 GameObject:
   m_ObjectHideFlags: 0
@@ -11373,6 +11403,7 @@ GameObject:
   - component: {fileID: 1711249440}
   - component: {fileID: 1711249443}
   - component: {fileID: 1711249439}
+  - component: {fileID: 1711249444}
   - component: {fileID: 1711249442}
   m_Layer: 5
   m_Name: Song3
@@ -11423,8 +11454,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 0.8160377, b: 0.927146, a: 0.78431374}
-    m_PressedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 0.78431374}
-    m_SelectedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 0.78431374}
+    m_PressedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 1}
+    m_SelectedColor: {r: 1, g: 0.6933962, b: 0.87857676, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -11443,7 +11474,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1711249440}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1711249444}
+        m_MethodName: setLvl
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1711249440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11589,6 +11631,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theSound: {fileID: 872374387}
+--- !u!114 &1711249444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711249437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33e7056a0e15647db8faf58cdbfa4cb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songNmb: 3
+  menu: {fileID: 0}
 --- !u!1 &1715422507
 GameObject:
   m_ObjectHideFlags: 0
@@ -12949,7 +13005,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0d4b7353ced5e4c90910bfb9066c6940, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56a4c5016d2db4b868cf37d0143a8e09, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

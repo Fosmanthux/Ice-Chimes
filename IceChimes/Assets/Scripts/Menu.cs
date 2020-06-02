@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
     System.Random rnd;
+    public static Menu instance { set; get; }
 
     /*public GameObject characterPane;
     public GameObject shopPane;
@@ -35,6 +36,7 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
+        instance = this;
         rnd = new System.Random();
         Time.timeScale = 1f;
         isbear = (PlayerPrefs.GetInt("isbear") != 0);
@@ -74,20 +76,8 @@ public class Menu : MonoBehaviour
         }
     }
 
-    public void setLevel1(){
-     levelToLoad = 1;
-     play.interactable = true;
-    }
-
-    public void setLevel2()
-    {
-        levelToLoad = 2;
-        play.interactable = true;
-    }
-
-    public void setLevel3()
-    {
-        levelToLoad = 3;
+    public void setLevel(int level){
+        levelToLoad = level;
         play.interactable = true;
     }
 

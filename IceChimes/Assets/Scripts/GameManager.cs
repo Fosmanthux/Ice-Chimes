@@ -86,9 +86,9 @@ public class GameManager : MonoBehaviour
         //Debug.Log("Hit");
         scores += noteScore;
         scoreText.text = "Score [ " + scores + " ]";
-        if (scores >= FinishLine.winCondition && !Menu.songs[scene-1])
+        if (scores >= FinishLine.instance.winCondition && !Menu.songs[scene-1])
         {
-            String text = FinishLine.winCondition.ToString();
+            String text = FinishLine.instance.winCondition.ToString();
             winScore.text = "Score [ " + text + " ]";
             animator.SetTrigger("complete");
             //Sound effect
